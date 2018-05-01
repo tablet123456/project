@@ -39,7 +39,7 @@ public class Plane extends Geometry {
 	public ArrayList<Point3D> findintersection(Ray ray) throws Exception{
 		ArrayList<Point3D> intersection=new ArrayList<Point3D>();
 		ray=new Ray(ray.get_p0(),ray.get_direction()._normalize());
-		double t=(this._normal.dotProduct(this._p.vecsubtract(ray.get_p0())))/(this._normal.dotProduct(ray.get_direction()));
+		double t=(this._normal._dotproduct(this._p.vecsubtract(ray.get_p0())))/(this._normal._dotproduct(ray.get_direction()));
 		if(t>=0) {
 			intersection.add(new Point3D(ray.get_p0().add(ray.get_direction().scale(t))));
 		    return intersection;

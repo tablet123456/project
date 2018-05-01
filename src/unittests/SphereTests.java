@@ -50,9 +50,11 @@ class SphereTests {
 				
 				for (Point3D iPoint: intersectionPointsSphere)
 				{
-					
-					assertTrue(iPoint.equals(new Point3D(0.0, 0.0, -2.0)) ||
-							iPoint.equals(new Point3D(0.0, 0.0, -4.0)));
+					assertTrue(iPoint.equals(new Point3D(0.0, 0.0, -2.0)) ||iPoint.equals(new Point3D(0.0, 0.0, -4.0)));
+					System.out.println(iPoint);
+				}
+				System.out.println("Intersection Points Sphere 2:");
+				for (Point3D iPoint: intersectionPointsSphere2) {
 					System.out.println(iPoint);
 				}
 			

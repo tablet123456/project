@@ -17,17 +17,11 @@ class TriangleTests {
 		
 		Ray[][] rays = new Ray [HEIGHT][WIDTH];
 		
-		Camera camera = new Camera(new Point3D(0.0 ,0.0 ,0.0),
-				new Vector (0.0, 1.0, 0.0),
-				new Vector (0.0, 0.0, -1.0));
+		Camera camera = new Camera(new Point3D(0.0 ,0.0 ,0.0),new Vector (0.0, 1.0, 0.0),new Vector (0.0, 0.0, -1.0));
 		
-		Triangle triangle = new Triangle(new Point3D( 0, 1, -2),
-				new Point3D( 1, -1, -2),
-				new Point3D(-1, -1, -2));
+		Triangle triangle = new Triangle(new Point3D( 0, -1, -2),new Point3D( 1, 1, -2),new Point3D(-1, 1, -2));
 		
-		Triangle triangle2 = new Triangle(new Point3D( 0, 10, -2),
-				new Point3D( 1, -1, -2),
-				new Point3D(-1, -1, -2));
+		Triangle triangle2 = new Triangle(new Point3D( 0, -20, -2),new Point3D( 1, 1, -2),new Point3D(-1, 1, -2));
 		
 		ArrayList<Point3D> intersectionPointsTriangle = new ArrayList<Point3D>();
 		ArrayList<Point3D> intersectionPointsTriangle2 = new ArrayList<Point3D>();
@@ -37,12 +31,10 @@ class TriangleTests {
 		{
 			for (int j = 0; j < WIDTH; j++)
 			{
-				rays[i][j] = camera.constructRayThroughPixel
-						
-						(WIDTH, HEIGHT, j, i, 1, 3 * WIDTH, 3 * HEIGHT);
+				rays[i][j] = camera.constructRayThroughPixel(WIDTH, HEIGHT, i, j, 1, 3 * WIDTH, 3 * HEIGHT);
+				ArrayList<Point3D> rayIntersectionPoints = triangle.findintersection(rays[i][j]);
+				ArrayList<Point3D> rayIntersectionPoints2= triangle2.findintersection(rays[i][j]);
 				
-				ArrayList<Point3D> rayIntersectionPoints = triangle. findintersection(rays[i][j]);
-				ArrayList<Point3D> rayIntersectionPoints2 = triangle2.findintersection(rays[i][j]);
 				
 				for (Point3D iPoint: rayIntersectionPoints)
 					intersectionPointsTriangle.add(iPoint);
@@ -63,8 +55,10 @@ class TriangleTests {
 		
 		for (Point3D iPoint: intersectionPointsTriangle2)
 			System.out.println(iPoint);
-		
-	 }
+	}
 }
+	
+
+
 
 

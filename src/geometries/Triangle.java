@@ -9,7 +9,7 @@ public class Triangle extends Plane {
 	private Point3D _p1;
 	private Point3D _p2;
 	private Point3D _p3;
-	// ***************** Constructors ********************** 
+	/***************** Constructors **********************/ 
 	public Triangle(Point3D point1, Point3D point2, Point3D point3) {
 		super(point1, point2, point3);
 		this._p1 =new Point3D(point1);

@@ -19,7 +19,7 @@ public class Main {
 		Point3D point5 = new Point3D(9, 6, 8);
 		Point3D point6 = new Point3D(1,2,3);
 	
-		Vector vector = new Vector(4, 5, 6);
+		Vector vector = new Vector(3.0, 5, 6);
 		Vector vector1 = new Vector(point4);
 		Vector vector2 = new Vector (coord,coord1,coord2);
 		
@@ -64,7 +64,7 @@ public class Main {
 				System.out.println(triangle.getNormal(point6));
 				
 				// Checking Planes class
-				System.out.println(plane.getNormal(point5));
+				System.out.println(plane.getNormal(point4));
 				
 				// Checking Spheres class
 				
