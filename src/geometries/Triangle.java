@@ -60,7 +60,7 @@ public class Triangle extends Plane {
 		ArrayList<Point3D>intersection= new ArrayList<Point3D>();
 		intersection=super.findintersection(ray);
 		if(intersection.size()==0) {
-			throw new Exception("no intersections with plane");
+			throw new Exception("no intersections with the plane");
 		}
 		else {
 		
@@ -76,8 +76,11 @@ public class Triangle extends Plane {
 		double q3=((p.vecsubtract(ray.get_p0()))._dotproduct(N3));
 		if((q1>0&&q2>0&&q3>0)||(q1<0&&q2<0&&q3<0))
 			return intersection;
-		else
-			return intersection;
+			else
+			{
+				intersection.remove(0);
+				return intersection;
+			}
 	}
 	}
 	@Override

@@ -15,9 +15,7 @@ public class CameraTests {
 		
 		Point3D[][] screen = new Point3D [HEIGHT][WIDTH];
 		
-		Camera camera = new Camera(new Point3D(0.0 ,0.0 ,0.0),
-								   new Vector (0.0, 1.0, 0.0),
-								   new Vector (0.0, 0.0, -1.0));
+		Camera camera = new Camera(new Point3D(0.0 ,0.0 ,0.0), new Vector (0.0, 1.0, 0.0),new Vector (0.0, 0.0, -1.0));
 		
 		System.out.println("Camera:\n" + camera);
 		

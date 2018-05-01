@@ -18,9 +18,10 @@ public class Plane extends Geometry {
 		_normal = new Vector(p.get_normal());
 	}
 	public Plane(Point3D p1, Point3D p2, Point3D p3) {
-		Vector u = new Vector(p1.subtract(p2));
-		Vector v = new Vector(p1.subtract(p3));
+		Vector u = new Vector(p2.subtract(p1));
+		Vector v = new Vector(p3.subtract(p1));
 		Vector w = u._crossproduct(v);
+		_p = new Point3D(w.getHead());
 		_normal = w.normalize();
 	}
 	public Point3D get_p() {
@@ -39,7 +40,7 @@ public class Plane extends Geometry {
 	public ArrayList<Point3D> findintersection(Ray ray) throws Exception{
 		ArrayList<Point3D> intersection=new ArrayList<Point3D>();
 		ray=new Ray(ray.get_p0(),ray.get_direction()._normalize());
-		double t=(this._normal._dotproduct(this._p.vecsubtract(ray.get_p0())))/(this._normal._dotproduct(ray.get_direction()));
+		double t=(this._normal.dotProduct(this._p.vecsubtract(ray.get_p0())))/(this._normal.dotProduct(ray.get_direction()));
 		if(t>=0) {
 			intersection.add(new Point3D(ray.get_p0().add(ray.get_direction().scale(t))));
 		    return intersection;
