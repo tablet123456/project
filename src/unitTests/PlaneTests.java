@@ -1,4 +1,4 @@
-package unittests;
+package unitTests;
 import primitives.*;
 import geometries.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -60,6 +60,4 @@ class PlaneTests {
 		}
 }
 		
-		
-
-
+	

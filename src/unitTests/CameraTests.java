@@ -1,4 +1,4 @@
-package unittests;
+package unitTests;
 import primitives.*;
 import elements.*;
 import static org.junit.Assert.*;

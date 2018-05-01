@@ -1,4 +1,4 @@
-package unittests;
+package unitTests;
 import primitives.*;
 import geometries.*;
 import elements.*;
@@ -57,8 +57,3 @@ class TriangleTests {
 			System.out.println(iPoint);
 	}
 }
-	
-
-
-
-
