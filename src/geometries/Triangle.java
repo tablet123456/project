@@ -59,9 +59,11 @@ public class Triangle extends Plane {
 	public ArrayList<Point3D> findintersection(Ray ray) throws Exception {
 		ArrayList<Point3D>intersection= new ArrayList<Point3D>();
 		intersection=super.findintersection(ray);
-		if(intersection==null) {
+		if(intersection.size()==0) {
 			throw new Exception("no intersections with plane");
 		}
+		else {
+		
 		Vector v1=(this._p1.vecsubtract(ray.get_p0()));
 		Vector v2=(this._p2.vecsubtract(ray.get_p0()));
 		Vector v3=(this._p3.vecsubtract(ray.get_p0()));
@@ -77,7 +79,7 @@ public class Triangle extends Plane {
 		else
 			return intersection;
 	}
-
+	}
 	@Override
 	public Vector getNormal(Point3D point) {
 		return super.get_normal();

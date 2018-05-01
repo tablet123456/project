@@ -19,9 +19,9 @@ class TriangleTests {
 		
 		Camera camera = new Camera(new Point3D(0.0 ,0.0 ,0.0),new Vector (0.0, 1.0, 0.0),new Vector (0.0, 0.0, -1.0));
 		
-		Triangle triangle = new Triangle(new Point3D( 0, -1, -2),new Point3D( 1, 1, -2),new Point3D(-1, 1, -2));
+		Triangle triangle = new Triangle(new Point3D( 0, 1, -2),new Point3D( 1, 1, -2),new Point3D(-1, 1, -2));
 		
-		Triangle triangle2 = new Triangle(new Point3D( 0, -20, -2),new Point3D( 1, 1, -2),new Point3D(-1, 1, -2));
+		Triangle triangle2 = new Triangle(new Point3D( 0, 20, -2),new Point3D( 1, 1, -2),new Point3D(-1, 1, -2));
 		
 		ArrayList<Point3D> intersectionPointsTriangle = new ArrayList<Point3D>();
 		ArrayList<Point3D> intersectionPointsTriangle2 = new ArrayList<Point3D>();
