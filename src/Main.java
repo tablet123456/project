@@ -37,7 +37,7 @@ public class Main {
 		
 		        // Checking Coordinates class
 				
-		System.out.println(coord.add(coord1));
+				System.out.println(coord.add(coord1));
 				System.out.println(coord.multiply(coord1));
 				System.out.println(coord.scale(5.0));
 				System.out.println(coord.subtract(coord1));
@@ -46,7 +46,6 @@ public class Main {
 				
 				System.out.println(point3.vectorsubtract(point5));
 				System.out.println(point4.add(vector));
-				System.out.println(point5.subtract(point3));
 				System.out.println(point3.distance(point5));
 				
 				// Checking Vectors class

@@ -90,7 +90,7 @@ public class Camera {
 		double Xi=(i-(Nx-1)/2.0)*Rx;
 		double Yi=(j-(Ny-1)/2.0)*Ry;
 		Point3D pij=new Point3D (Pc.add((_vRight.scale(Xi)).add(_vUp.scale(-Yi))));
-		Vector vij=new Vector(pij.subtract(_p0)).normalize();
+		Vector vij=new Vector(pij.vectorsubtract(_p0)).normalize();
 		return new Ray( pij,vij);
 		}
 		

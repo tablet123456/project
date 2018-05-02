@@ -35,10 +35,10 @@ public class Cylinder extends RadialGeometry {
 	}
 	@Override
 	public Vector getNormal(Point3D point) {
-		Vector v =new Vector(point.subtract(_axisRay.get_p0()));
+		Vector v =new Vector(point.vectorsubtract(_axisRay.get_p0()));
 		double t=_axisRay.get_direction()._dotproduct(v);
 		Point3D q= _axisRay.get_p0().add(_axisRay.get_direction().scale(t));
-		Vector normal= new Vector(point.subtract(q));
+		Vector normal= new Vector(point.vectorsubtract(q));
 		return normal.normalize();
 	}
 

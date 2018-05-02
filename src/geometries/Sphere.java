@@ -37,7 +37,7 @@ public class Sphere extends RadialGeometry {
 	public ArrayList<Point3D> findintersection(Ray ray) {
 		ArrayList<Point3D> intersection=new ArrayList<Point3D>();
 		
-		Vector u=new Vector(this.getmiddle().subtract(ray.get_p0()));
+		Vector u=new Vector(this.getmiddle().vectorsubtract(ray.get_p0()));
 		
 		ray=new Ray(ray.get_p0(),(ray.get_direction()._normalize()));
 		
@@ -64,7 +64,7 @@ public class Sphere extends RadialGeometry {
 	@Override
 	public Vector getNormal(Point3D point) {
 		if(point.distance(this.getmiddle())== this.get())
-			return (new Vector(point.subtract(this.getmiddle())).normalize());
+			return (new Vector(point.vectorsubtract(this.getmiddle())).normalize());
 		else
 			return null;
 	}

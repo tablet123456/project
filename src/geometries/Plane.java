@@ -18,8 +18,8 @@ public class Plane extends Geometry {
 		_normal = new Vector(p.getNormal(_p));
 	}
 	public Plane(Point3D p1, Point3D p2, Point3D p3) {
-		Vector u = new Vector(p2.subtract(p1));
-		Vector v = new Vector(p3.subtract(p1));
+		Vector u = new Vector(p2.vectorsubtract(p1));
+		Vector v = new Vector(p3.vectorsubtract(p1));
 		Vector w = u._crossproduct(v);
 		_p = new Point3D(w.getHead());
 		_normal = w.normalize();

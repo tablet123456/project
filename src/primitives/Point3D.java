@@ -61,13 +61,7 @@ package primitives;
 		Coordinate z = new Coordinate(this.getZ().add(v.getHead().getZ()));
 		return new Point3D(x,y,z);
 	}
-	public Point3D subtract(Point3D point) {
-		Coordinate x = new Coordinate(this.getX().subtract(point.getX()));
-		Coordinate y = new Coordinate(this.getY().subtract(point.getY()));
-		Coordinate z = new Coordinate(this.getZ().subtract(point.getZ()));
-		return new Point3D(x,y,z);
 	
-	}
 	public double distance(Point3D point) {
 		double x = Math.pow(this.getX().subtract(point.getX()).get(),2);
 		double y = Math.pow(this.getY().subtract(point.getY()).get(),2);
