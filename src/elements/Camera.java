@@ -6,6 +6,7 @@ public class Camera {
 	Vector _vTo;
 	Vector _vRight;
 	/***************** Constructors **********************/ 
+	
 	public Camera(Point3D p0,Vector vUp,Vector vTo) {
 		this._p0=new Point3D (p0);
 		this._vUp=(new Vector(vUp)._normalize());

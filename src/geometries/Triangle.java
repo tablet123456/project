@@ -85,7 +85,7 @@ public class Triangle extends Plane {
 	}
 	@Override
 	public Vector getNormal(Point3D point) {
-		return super.get_normal();
+		return super.getNormal(point);
 	}
 
 }

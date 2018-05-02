@@ -15,7 +15,7 @@ public class Plane extends Geometry {
 	}
 	public Plane(Plane p) {
 		_p = new Point3D(p.get_p());
-		_normal = new Vector(p.get_normal());
+		_normal = new Vector(p.getNormal(_p));
 	}
 	public Plane(Point3D p1, Point3D p2, Point3D p3) {
 		Vector u = new Vector(p2.subtract(p1));
@@ -53,13 +53,12 @@ public class Plane extends Geometry {
 	public Vector getNormal(Point3D point) {
 		return _normal;
 	}
-	public Vector get_normal() {
-		return _normal;
-	}
+	
+}
 	  
 	
 	   
 	
 
 	
-}
+
