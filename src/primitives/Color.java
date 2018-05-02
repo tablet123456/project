@@ -1,48 +1,69 @@
 package primitives;
 
 public class Color {
-	java.awt.Color _color;
-	double red;
-	double green;
-	double blue;
-	
-	public Color(double red ,double green ,double blue) {
+	float red;
+	float green;
+	float blue;
+	/***************** Constructors **********************/
+	public Color(float red ,float green ,float blue) {
+		this.setRed(red);
+		this.setGreen(green);
+		this.setBlue(blue);
 		
-		this.set_color(_color);	
 	}
+
+	/***************** Getters/Setters **********************/
+	
+	public double getRed() {
+		return red;
+	}
+
+	public double getGreen() {
+		return green;
+	}
+
+	public double getBlue() {
+		return blue;
+	}
+
+	public void setRed(float red) {
+		this.red = red;
+	}
+
+	public void setGreen(float green) {
+		this.green = green;
+	}
+
+	public void setBlue(float blue) {
+		this.blue = blue;
+	}
+	
+	/***************** Administration  ********************/
+	
+	
+	@Override
+	public String toString() {
+		return "Color [ red=" + red + ", green=" + green + ", blue=" + blue + "]";
+	}
+
+
+
+
+	/***************** Operations ********************/ 
 	
 	public Color add(Color _color) {
 		return _color;
 	}
-	public Color scale(double  ) {
-		
-	}
-	
-	public Color reduce(double  ) {
-		
-	}
-	
-	// ***************** Constructors ********************** // 
-	  
-		// ***************** Getters/Setters ********************** //
-		   
-		// ***************** Administration  ******************** //
 
-		// ***************** Operations ******************** // 
+	public Color scale(double color ) {
+		return null;
+	}
 	
-	
-	
-	
-	
-	public java.awt.Color get_color() {
-		return _color;
+	public Color reduce(double color ) {
+		return null;
 	}
 
-	public void set_color(java.awt.Color _color) {
-		this._color = _color;
-	}
-	
-	
+
 }
 
 
@@ -53,5 +74,5 @@ public class Color {
 
 
 
-
 	
+

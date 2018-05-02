@@ -14,7 +14,7 @@ public class Camera {
 		double x=vTo.dotProduct(vUp);
 		if(x!=0) {
 			_vRight=null;
-		}
+		} 
 		else
 		_vRight=(_vTo._crossproduct(_vUp)).normalize();
 		
