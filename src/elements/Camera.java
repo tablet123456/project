@@ -12,7 +12,7 @@ public class Camera {
 		this._vUp=(new Vector(vUp)._normalize());
 		this._vTo=(new Vector(vTo)._normalize());
 		double x=vTo.dotProduct(vUp);
-		if(x!=0) {
+		if(x==0) {
 			_vRight=null;
 		}
 		else

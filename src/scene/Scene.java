@@ -14,14 +14,7 @@ public class Scene {
   
   /***************** Constructors **********************/ 
  
-  public Scene() {
-	  set_sceneName("painting");
-	  set_background(Color.MAGENTA);
-	  _geometries=new ArrayList<Geometry>();
-	  set_camera(new Camera(new Point3D(0.0,0.0,0.0),new Vector(0,0,1),new Vector(0,1,0))); 
-	  set_screenDistance(1);
-  }
-  
+ 
   public Scene(String sceneName, Color background,ArrayList<Geometry> objects, Camera camera, double screenDistance) {
 		
 		this.set_sceneName(sceneName);
