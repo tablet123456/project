@@ -3,6 +3,7 @@ package primitives;
 public class Point2D {
 	private Coordinate _x;
 	private Coordinate _y;
+	/***************** Constructors **********************/ 
 	
 	public Point2D(double x, double y) {
 		_x = new Coordinate(x);
@@ -18,6 +19,7 @@ public class Point2D {
 		_x = new Coordinate(x);
 		_y = new Coordinate(y);
 	}
+	
 	/***************** Getters/Setters **********************/
 	public Coordinate getX() {
 		return _x;
@@ -39,5 +41,5 @@ public class Point2D {
 	public String toString() {
 		return "(" + _x + "," + _y + ")";
 	}
-	
+	/***************** Operations ********************/ 
 }

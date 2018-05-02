@@ -10,19 +10,19 @@ public class CameraTests {
 	@Test
 	public void testConstructRayThroughPixel() {
 		
-		final int WIDTH = 3;
-		final int HEIGHT = 3;
+		final int width = 3;
+		final int height = 3;
 		
-		Point3D[][] screen = new Point3D [HEIGHT][WIDTH];
+		Point3D[][] screen = new Point3D [width][height];
 		
 		Camera camera = new Camera(new Point3D(0.0 ,0.0 ,0.0), new Vector (0.0, 1.0, 0.0),new Vector (0.0, 0.0, -1.0));
 		
 		System.out.println("Camera:\n" + camera);
 		
-		for (int j = 0; j < HEIGHT; j++){
-			for (int i = 0; i < WIDTH; i++){
+		for (int j = 0; j < height; j++){
+			for (int i = 0; i < width; i++){
 				
-				Ray ray = camera.constructRayThroughPixel(WIDTH, HEIGHT, i, j, 1, 3 * WIDTH, 3 * HEIGHT);
+				Ray ray = camera.constructRayThroughPixel(width, height, i, j, 1, 3 * width, 3 * height);
 				
 				screen[i][j] = ray.get_p0();
 				

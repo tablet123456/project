@@ -2,6 +2,7 @@ package primitives;
 
 public class Vector {
 	private Point3D _head;
+	/***************** Constructors **********************/ 
 	
 	public Vector(Coordinate x, Coordinate y, Coordinate z) {
 		_head=new Point3D(x,y,z);
@@ -15,6 +16,7 @@ public class Vector {
 	public Vector(Vector other) {
 		_head = other._head;
 	}
+	
 	/***************** Getters/Setters **********************/
 	
 	public Point3D getHead() {
@@ -83,10 +85,10 @@ public class Vector {
 	}
 
 	public Vector _scale(double _scale) {
-			Coordinate x = this.getHead().getX().scale(_scale);
-			Coordinate y = this.getHead().getY().scale(_scale);
-			Coordinate z = this.getHead().getZ().scale(_scale);
-			return new Vector(x,y,z);
+		Coordinate x = this.getHead().getX().scale(_scale);
+		Coordinate y = this.getHead().getY().scale(_scale);
+		Coordinate z = this.getHead().getZ().scale(_scale);
+		return new Vector(x,y,z);
 		
 	}
 	public double _dotproduct(Vector v) {
@@ -119,6 +121,8 @@ public class Vector {
 		return new Vector(x, y, z);		
 	}
 
+	
+	  
 		
 	
 	

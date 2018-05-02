@@ -4,7 +4,8 @@ package primitives;
  * Class for 3D points  in out 3D graphics model
  *
  */
-public class Point3D extends Point2D {
+
+	public class Point3D extends Point2D {
 	private Coordinate _z;
 	
 	/**
@@ -12,6 +13,8 @@ public class Point3D extends Point2D {
 	 * @param y
 	 * @param z
 	 */
+	/***************** Constructors **********************/ 
+	
 	public Point3D(double x, double y, double z) {
 		super(x, y);
 		_z = new Coordinate(z);
@@ -26,7 +29,8 @@ public class Point3D extends Point2D {
 		super(x,y);
 		_z=new Coordinate(z);
 	}
-
+	/***************** Getters/Setters **********************/
+	
 	public Coordinate getZ() {
 		return _z;
 	}

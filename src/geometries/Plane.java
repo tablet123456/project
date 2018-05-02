@@ -34,7 +34,7 @@ public class Plane extends Geometry {
 
 	@Override
 	public String toString() {
-		return "" + _p + ", " + _normal ;
+		return "Plane [_p=" + _p + ", _normal=" + _normal + "]";
 	}
 	
 	public ArrayList<Point3D> findintersection(Ray ray) throws Exception{
@@ -46,11 +46,18 @@ public class Plane extends Geometry {
 		    return intersection;
 		}
 		else
-			throw new Exception("no intersections");
+			throw new Exception("no intersections with the plane");
 	}
 	@Override
 	public Vector getNormal(Point3D point) {
 		return _normal;
 	}
+	// ***************** Constructors ********************** // 
+	  
+	// ***************** Getters/Setters ********************** //
+	   
+	// ***************** Administration  ******************** //
+
+	// ***************** Operations ******************** // 
 
 }

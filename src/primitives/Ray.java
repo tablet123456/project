@@ -70,7 +70,7 @@ public class Ray {
 			return false;
 		return true;
 	}
-	
+	/***************** Operations ********************/ 
 	
       
 

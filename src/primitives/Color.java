@@ -2,19 +2,33 @@ package primitives;
 
 public class Color {
 	java.awt.Color _color;
+	double red;
+	double green;
+	double blue;
 	
+	public Color(double red ,double green ,double blue) {
+		
+		this.set_color(_color);	
+	}
 	
-	
-	public Color (java.awt.Color _color) {
-		this.set_color(_color);
+	public Color add(Color _color) {
+		return _color;
+	}
+	public Color scale(double  ) {
 		
 	}
 	
+	public Color reduce(double  ) {
+		
+	}
 	
+	// ***************** Constructors ********************** // 
+	  
+		// ***************** Getters/Setters ********************** //
+		   
+		// ***************** Administration  ******************** //
 
-	
-	
-	
+		// ***************** Operations ******************** // 
 	
 	
 	
@@ -29,7 +43,7 @@ public class Color {
 	}
 	
 	
-	}
+}
 
 
 

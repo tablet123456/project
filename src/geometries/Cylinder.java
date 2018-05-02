@@ -19,10 +19,14 @@ public class Cylinder extends RadialGeometry {
 	}
 	/***************** Administration  ********************/
 
+	
 	@Override
 	public String toString() {
-		return " "+ _axisRay;
+		return "Cylinder [_axisRay=" + _axisRay + "]";
 	}
+
+
+	
 	/***************** Operations ********************/ 
 	
 	

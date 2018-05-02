@@ -23,7 +23,7 @@ public class Triangle extends Plane {
 		this._p2 =triangle.get_p2();
 		this._p3 =triangle.get_p3();
 	}
-
+	/***************** Getters/Setters **********************/
 	public Point3D get_p1() {
 		return _p1;
 	}
@@ -89,3 +89,7 @@ public class Triangle extends Plane {
 	}
 
 }
+
+
+	
+	   

@@ -5,7 +5,7 @@ public class Camera {
 	Vector _vUp;
 	Vector _vTo;
 	Vector _vRight;
-	
+	/***************** Constructors **********************/ 
 	public Camera(Point3D p0,Vector vUp,Vector vTo) {
 		this._p0=new Point3D (p0);
 		this._vUp=(new Vector(vUp)._normalize());
@@ -19,6 +19,32 @@ public class Camera {
 		
 		
 		}
+	
+	
+	/***************** Getters/Setters **********************/
+	
+	public Point3D get_p0() {
+		return _p0;
+	}
+	public Vector get_vUp() {
+		return _vUp;
+	}
+	public Vector get_vTo() {
+		return _vTo;
+	}
+	public Vector get_vRight() {
+		return _vRight;
+	}
+	
+	/***************** Administration  ********************/
+	
+	@Override
+	public String toString() {
+		return "Camera [_p0=" + _p0 + ", _vUp=" + _vUp + ", _vTo=" + _vTo + ", _vRight=" + _vRight + "]";
+	}
+
+	/***************** Operations ********************/ 
+	
 	public Ray constructRayThroughPixel(int Nx, int Ny, int i, int j, double screenDistance,double screenwidth,double screenHeight) {
 		
 		Vector dvTo=new Vector(this._vTo.scale(screenDistance));
@@ -35,28 +61,6 @@ public class Camera {
 		return new Ray( pij,vij);
 		}
 		
-	
-	
-	public Point3D get_p0() {
-		return _p0;
-	}
-	public Vector get_vUp() {
-		return _vUp;
-	}
-	public Vector get_vTo() {
-		return _vTo;
-	}
-	public Vector get_vRight() {
-		return _vRight;
-	}
-	@Override
-	public String toString() {
-		return "Camera [_p0=" + _p0 + ", _vUp=" + _vUp + ", _vTo=" + _vTo + ", _vRight=" + _vRight + "]";
-	}
-	
-	
-	
-	
 	
 	
 	
