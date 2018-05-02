@@ -46,9 +46,6 @@ public class Color {
 		return "Color [ red=" + red + ", green=" + green + ", blue=" + blue + "]";
 	}
 
-
-
-
 	/***************** Operations ********************/ 
 	
 	public Color add(Color _color) {
