@@ -64,16 +64,16 @@ public class Triangle extends Plane {
 		}
 		else {
 		
-		Vector v1=(this._p1.vecsubtract(ray.get_p0()));
-		Vector v2=(this._p2.vecsubtract(ray.get_p0()));
-		Vector v3=(this._p3.vecsubtract(ray.get_p0()));
+		Vector v1=(this._p1.vectorsubtract(ray.get_p0()));
+		Vector v2=(this._p2.vectorsubtract(ray.get_p0()));
+		Vector v3=(this._p3.vectorsubtract(ray.get_p0()));
 		Vector N1=((v1._crossproduct(v2)).normalize());
 		Vector N2=((v2._crossproduct(v3)).normalize());
 		Vector N3=((v3._crossproduct(v1)).normalize());
 		Point3D p=new Point3D(intersection.get(0));
-		double q1=((p.vecsubtract(ray.get_p0()))._dotproduct(N1));
-		double q2=((p.vecsubtract(ray.get_p0()))._dotproduct(N2));
-		double q3=((p.vecsubtract(ray.get_p0()))._dotproduct(N3));
+		double q1=((p.vectorsubtract(ray.get_p0()))._dotproduct(N1));
+		double q2=((p.vectorsubtract(ray.get_p0()))._dotproduct(N2));
+		double q3=((p.vectorsubtract(ray.get_p0()))._dotproduct(N3));
 		if((q1>0&&q2>0&&q3>0)||(q1<0&&q2<0&&q3<0))
 			return intersection;
 			else

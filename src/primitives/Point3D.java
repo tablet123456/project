@@ -49,7 +49,7 @@ package primitives;
 		return "(" + getX() + "," + getY() + "," + _z + ")";
 	}
 	/***************** Operations ********************/ 
-	public Vector vecsubtract(Point3D point) {
+	public Vector vectorsubtract(Point3D point) {
 		Coordinate x = new Coordinate(this.getX().subtract(point.getX()));
 		Coordinate y = new Coordinate(this.getY().subtract(point.getY()));
 		Coordinate z = new Coordinate(this.getZ().subtract(point.getZ()));

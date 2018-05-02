@@ -44,7 +44,7 @@ public class Main {
 				
 				// Checking Point3Ds class
 				
-				System.out.println(point3.vecsubtract(point5));
+				System.out.println(point3.vectorsubtract(point5));
 				System.out.println(point4.add(vector));
 				System.out.println(point5.subtract(point3));
 				System.out.println(point3.distance(point5));
