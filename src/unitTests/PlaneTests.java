@@ -10,9 +10,9 @@ class PlaneTests {
 
 	@Test
 	public void testIntersectionPoints() throws Exception{ 
-			final int WIDTH = 3;
-			final int HEIGHT = 3;
-			Ray[][] rays = new Ray [HEIGHT][WIDTH];
+			final int width = 3;
+			final int height = 3;
+			Ray[][] rays = new Ray [width][height];
 			Camera camera = new Camera(new Point3D(0.0 ,0.0 ,0.0),
 					
 					new Vector (0.0, 1.0, 0.0),
@@ -31,9 +31,9 @@ class PlaneTests {
 			
 			System.out.println("Camera:\n" + camera);
 			
-			for (int i = 0; i < HEIGHT; i++){
-				for (int j = 0; j < WIDTH; j++){
-					rays[i][j] = camera.constructRayThroughPixel(WIDTH, HEIGHT, j, i, 1, 3 * WIDTH, 3 * HEIGHT);
+			for (int i = 0; i < height; i++){
+				for (int j = 0; j < width; j++){
+					rays[i][j] = camera.constructRayThroughPixel(width, height, j, i, 1, 3 * width, 3 * height);
 					
 					ArrayList<Point3D> rayIntersectionPoints = plane.findintersection(rays[i][j]);
 					ArrayList<Point3D> rayIntersectionPoints2 = plane2.findintersection(rays[i][j]);

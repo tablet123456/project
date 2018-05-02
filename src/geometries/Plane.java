@@ -8,7 +8,7 @@ import primitives.*;
 public class Plane extends Geometry {
 	private Point3D _p;
 	private Vector _normal;
-	
+	/***************** Constructors **********************/ 
 	public Plane(Point3D p, Vector v) {
 		_p = new Point3D(p);
 		_normal= new Vector(v);
@@ -24,19 +24,20 @@ public class Plane extends Geometry {
 		_p = new Point3D(w.getHead());
 		_normal = w.normalize();
 	}
+	/***************** Getters/Setters **********************/
+	
 	public Point3D get_p() {
 		return _p;
 	}
 
-	public Vector get_normal() {
-		return _normal;
-	}
+	
+	/***************** Administration  ********************/
 
 	@Override
 	public String toString() {
 		return "Plane [_p=" + _p + ", _normal=" + _normal + "]";
 	}
-	
+	/***************** Operations ********************/
 	public ArrayList<Point3D> findintersection(Ray ray) throws Exception{
 		ArrayList<Point3D> intersection=new ArrayList<Point3D>();
 		ray=new Ray(ray.get_p0(),ray.get_direction()._normalize());
@@ -52,12 +53,13 @@ public class Plane extends Geometry {
 	public Vector getNormal(Point3D point) {
 		return _normal;
 	}
-	// ***************** Constructors ********************** // 
+	public Vector get_normal() {
+		return _normal;
+	}
 	  
-	// ***************** Getters/Setters ********************** //
+	
 	   
-	// ***************** Administration  ******************** //
+	
 
-	// ***************** Operations ******************** // 
-
+	
 }

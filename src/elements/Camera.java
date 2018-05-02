@@ -42,6 +42,38 @@ public class Camera {
 	public String toString() {
 		return "Camera [_p0=" + _p0 + ", _vUp=" + _vUp + ", _vTo=" + _vTo + ", _vRight=" + _vRight + "]";
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Camera))
+			return false;
+		Camera other = (Camera) obj;
+		if (_p0 == null) {
+			if (other._p0 != null)
+				return false;
+		} else if (!_p0.equals(other._p0))
+			return false;
+		if (_vRight == null) {
+			if (other._vRight != null)
+				return false;
+		} else if (!_vRight.equals(other._vRight))
+			return false;
+		if (_vTo == null) {
+			if (other._vTo != null)
+				return false;
+		} else if (!_vTo.equals(other._vTo))
+			return false;
+		if (_vUp == null) {
+			if (other._vUp != null)
+				return false;
+		} else if (!_vUp.equals(other._vUp))
+			return false;
+		return true;
+	}
+
 
 	/***************** Operations ********************/ 
 	
