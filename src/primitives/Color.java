@@ -3,12 +3,14 @@ package primitives;
 public class Color {
 	java.awt.Color _color;
 	
-	public Color add(java.awt.Color _color) {
+	
+	
+	public Color (java.awt.Color _color) {
 		this.set_color(_color);
 		
 	}
-	public Color scale() {
-	}
+	
+	
 
 	
 	
