@@ -4,6 +4,8 @@ import primitives.*;
 
 	public abstract class Geometry {
 		
+		ArrayList<Point3D> findintersection;
+		
 		/********** Constructors ***********/
 		
 		// Default constructor
@@ -15,5 +17,6 @@ import primitives.*;
 		}
 		public abstract Vector getNormal(Point3D point); 
 		public abstract ArrayList<Point3D> findintersection(Ray ray) throws Exception ;
+		
 	}
 

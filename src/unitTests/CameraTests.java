@@ -19,8 +19,8 @@ public class CameraTests {
 		
 		System.out.println("Camera:\n" + camera);
 		
-		for (int j = 0; j < height; j++){
-			for (int i = 0; i < width; i++){
+		for (int i = 0; i < width; j++){
+			for (int j = 0; j <height; i++){
 				
 				Ray ray = camera.constructRayThroughPixel(width, height, i, j, 1, 3 * width, 3 * height);
 				

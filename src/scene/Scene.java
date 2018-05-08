@@ -2,48 +2,44 @@ package scene;
 import geometries.*;
 import primitives.*;
 import java.awt.Color;
-import java.util.ArrayList;
 import elements.*;
 
 public class Scene {
   String _sceneName;
   private Color _background;
-  private ArrayList<Geometry> _geometries;
+  private AmbientLight _ambientLight;
+  private Geometries _geometries;
   private Camera _camera;
   private double _screenDistance;
   
   /***************** Constructors **********************/ 
  
-  public Scene() {
-	  set_sceneName("painting");
-	  set_background(Color.MAGENTA);
-	  _geometries=new ArrayList<Geometry>();
-	  set_camera(new Camera(new Point3D(0.0,0.0,0.0),new Vector(0.0,0.0,1.0),new Vector(0.0,1.0,0.0))); 
-	  set_screenDistance(1.0);
-  }
-  
-  public Scene(String sceneName, Color background,ArrayList<Geometry> objects, Camera camera, double screenDistance) {
-		
-		this.set_sceneName(sceneName);
-		this.set_background(background);
-		this._geometries = new ArrayList<>();
-		for(Geometry geo:objects) {
-			this._geometries.add(geo);
+  public Scene(String sceneName) {
+	   
+			_sceneName = sceneName;
+			_camera =  new Camera(new Point3D(0.0 ,0.0 ,0.0), new Vector (0.0, 1.0, 0.0), new Vector (0.0, 0.0, -1.0));
+			_screenDistance = 1;
+			_geometries = new Geometries();
 		}
-		this.set_camera(camera);
-		this.set_screenDistance(screenDistance);
-	}
+	
  
   /***************** Getters/Setters **********************/
   
   public String get_sceneName() {
 		return _sceneName;
 	}
-  
+
 	public Color get_background() {
 		return _background;
 	}
+	public AmbientLight get_ambientLight() {
+		return _ambientLight;
+	}
 	
+	public Geometries get_geometries() {
+		return _geometries;
+	}
+
 	public Camera get_camera() {
 		return _camera;
 	}
@@ -59,6 +55,16 @@ public class Scene {
 	public void set_background(Color _background) {
 		this._background = _background;
 	}
+	
+	public void set_ambientLight(AmbientLight _ambientLight) {
+		this._ambientLight = _ambientLight;
+	}
+	
+	public void set_geometries(Geometries _geometries) {
+		this._geometries = _geometries;
+	}
+	
+	
 
 	public void set_camera(Camera _camera) {
 		this._camera = _camera;
@@ -111,8 +117,8 @@ public class Scene {
 	
 		// ***************** Operations ******************** // 
     
-  public void addGeometry() {
-	  
+  public void addGeometry(Geometry geometry) {
+	  _geometries.addGeometry(geometry);
   }
 
 

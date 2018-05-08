@@ -20,7 +20,7 @@ public class RenderTest {
 		scene.set_screenDistance(100);
 		scene.set_background(new Color(0, 0, 0));
 		Geometry geometries = new Geometry();
-		scene.setGeomtries(geometries);
+		scene.set_geometries(geometries);
 		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150)));
 		
 		geometries.addGeometry(new Triangle(new Point3D( 100, 0, 149),
