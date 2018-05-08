@@ -5,14 +5,10 @@ import geometries.*;
 import primitives.*;
 import scene.Scene;
 
+
 public class Render {
 	Scene _scene;
 	ImageWriter _imageWriter;
-
-	
-	
-	
-	
 	
 	
 	public Scene get_scene() {
@@ -32,10 +28,9 @@ public class Render {
 	}
 	
 	private Color calcColor(Point3D point) {
-		return _scene.ambientLight.getIntensity();
-		}
-
-
+		_color.setColor(_scene.get_ambientLight().getIntensity());
+		return _color;
+	}
 
 	private Point3D getClosestPoint(List<Point3D> intersectionPoints) {
 		double distance =Double.MAX_VALUE;

@@ -115,10 +115,7 @@ public class Scene {
 	  
   }
 
-public static Object getGeometries() {
-	// TODO Auto-generated method stub
-	return null;
-}
+
   
  
   

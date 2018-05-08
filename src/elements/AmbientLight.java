@@ -2,11 +2,36 @@ package elements;
 import primitives.Color;
 
 public class AmbientLight {
-	Color _color;
-	double ka;
+	private Color _color;
+	private double _Ka;
+	private Color _intensity;
 	
-	
-	public Color getIntensity() {
+	/********** Constructors ***********/	
+	public AmbientLight(Color color, double ka) {
+		_color = color;
+		_Ka = ka;
+		_intensity = new Color(_color).scale(_Ka);
+	}
+
+	/************** Getters/Setters *******/
+	public Color get_color() {
 		return _color;
+	}
+
+	public void set_color(Color _color) {
+		this._color = _color;
+	}
+
+	public double getKa() {
+		return _Ka;
+	}
+
+	public void setKa(double ka) {
+		_Ka = ka;
+	}
+	// retuurn final Ambiant light after multiply by Ka 
+	public Color getIntensity()
+	{
+		return _intensity;
 	}
 }
