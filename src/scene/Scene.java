@@ -66,16 +66,59 @@ public class Scene {
 	
 	public void set_screenDistance(double _screenDistance) {
 		this._screenDistance = _screenDistance;
-	}
-	
-
-	  
-		   
+	}   
 		// ***************** Administration  ******************** //
 
+	@Override
+	public String toString() {
+		return "Scene [_sceneName=" + _sceneName + ", _background=" + _background + ", _geometries=" + _geometries
+				+ ", _camera=" + _camera + ", _screenDistance=" + _screenDistance + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Scene))
+			return false;
+		Scene other = (Scene) obj;
+		if (_background == null) {
+			if (other._background != null)
+				return false;
+		} else if (!_background.equals(other._background))
+			return false;
+		if (_camera == null) {
+			if (other._camera != null)
+				return false;
+		} else if (!_camera.equals(other._camera))
+			return false;
+		if (_geometries == null) {
+			if (other._geometries != null)
+				return false;
+		} else if (!_geometries.equals(other._geometries))
+			return false;
+		if (_sceneName == null) {
+			if (other._sceneName != null)
+				return false;
+		} else if (!_sceneName.equals(other._sceneName))
+			return false;
+		if (Double.doubleToLongBits(_screenDistance) != Double.doubleToLongBits(other._screenDistance))
+			return false;
+		return true;
+	}
+	
 		// ***************** Operations ******************** // 
     
-  
+  public void addGeometry() {
+	  
+  }
+
+public static Object getGeometries() {
+	// TODO Auto-generated method stub
+	return null;
+}
   
  
   

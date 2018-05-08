@@ -4,6 +4,8 @@ import geometries.*;
 import elements.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 
@@ -23,8 +25,8 @@ class TriangleTests {
 		
 		Triangle triangle2 = new Triangle(new Point3D( 0, 20, -2),new Point3D( 1, -1, -2),new Point3D(-1, -1, -2));
 		
-		ArrayList<Point3D> intersectionPointsTriangle = new ArrayList<Point3D>();
-		ArrayList<Point3D> intersectionPointsTriangle2 = new ArrayList<Point3D>();
+		List<Point3D> intersectionPointsTriangle = new ArrayList<Point3D>();
+		List<Point3D> intersectionPointsTriangle2 = new ArrayList<Point3D>();
 		System.out.println("Camera:\n" + camera);
 		
 		for (int i = 0; i < height; i++)
@@ -32,8 +34,8 @@ class TriangleTests {
 			for (int j = 0; j < width; j++)
 			{
 				rays[i][j] = camera.constructRayThroughPixel(width, height, i, j, 1, 3 * width, 3 * height);
-				ArrayList<Point3D> rayIntersectionPoints = triangle.findintersection(rays[i][j]);
-				ArrayList<Point3D> rayIntersectionPoints2= triangle2.findintersection(rays[i][j]);
+				List<Point3D> rayIntersectionPoints = triangle.findintersection(rays[i][j]);
+				List<Point3D> rayIntersectionPoints2= triangle2.findintersection(rays[i][j]);
 				
 				
 				for (Point3D iPoint: rayIntersectionPoints)
