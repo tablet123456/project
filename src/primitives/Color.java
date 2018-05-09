@@ -68,6 +68,7 @@ public class Color {
 	 * 
 	 * @return color in java.awt type
 	 */
+	
 	public java.awt.Color getColor() {
 		int r = (int) _red;
 		int g = (int) _green;

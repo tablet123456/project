@@ -7,6 +7,11 @@ public class AmbientLight {
 	private Color _intensity;
 	
 	/********** Constructors ***********/	
+	public AmbientLight() {
+		_color = new Color(255, 255, 255);
+		_Ka = 1;
+	}
+	
 	public AmbientLight(Color color, double ka) {
 		_color = color;
 		_Ka = ka;

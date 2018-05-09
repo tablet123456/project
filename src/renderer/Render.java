@@ -1,4 +1,5 @@
 package renderer;
+import java.util.ArrayList;
 import java.util.List;
 import elements.*;
 import geometries.*;
@@ -9,6 +10,11 @@ import scene.Scene;
 public class Render {
 	Scene _scene;
 	ImageWriter _imageWriter;
+	
+	public Render(ImageWriter image, Scene scene) {
+		_imageWriter = image;
+		_scene = scene;
+	}
 	
 	public Scene get_scene() {
 		return _scene;
@@ -32,25 +38,38 @@ public class Render {
 					_imageWriter.writePixel(i, j, 255,255,255);
 			}
 		}
-		
+		_imageWriter.writeToimage();
 	}
 	
-	
-	public void renderImage(){
-		for(int j = 0; j < _imageWriter.getNy(); j++){
-			for(int i = 0; i < _imageWriter.getNx(); i++){
-				Ray ray = _scene.get_camera().constructRayThroughPixel(_imageWriter.getNx(), _imageWriter.getNy() , i, j,_scene.get_screenDistance(), _imageWriter.getWidth(), _imageWriter.getHeight());
+	/**
+	 * write to image
+	 */
+	public void printImage() {
+		_imageWriter.writeToimage();
+	}
+
+	public void renderImage() {
+		for (int i = 0; i < _imageWriter.getNx(); i++) {
+			for (int j = 0; j < _imageWriter.getNy(); j++) {
+				Ray ray = _scene.get_camera().constructRayThroughPixel(_imageWriter.getNx(), _imageWriter.getNy(), i, j,_scene.get_screenDistance(), _imageWriter.getWidth(), _imageWriter.getHeight());
 				ArrayList<Point3D> intersectionsPoints = new ArrayList<Point3D>(_scene.get_geometries().findintersection(ray));
-				if(intersectionsPoints.size() == 0)
+				if (intersectionsPoints.size() == 0)
 					_imageWriter.writePixel(i, j, _scene.get_background().getColor());
-				else{
+				else {
+					//System.out.println(intersectionsPoints);
 					Point3D closestPoint = getClosestPoint(intersectionsPoints);
-					//_imageWriter.writePixel(i, j, calcColor(closestPoint).getColor());
-					_imageWriter.writePixel(i, j, 255,255,255);
+					// System.out.println(closestPoint);
+					// System.out.println("(" + i + "," + j + ")");
+					// System.exit(0);
+					_imageWriter.writePixel(i, j, calcColor(closestPoint).getColor());
+					// _imageWriter.writePixel(i, j, 255,255,255);
 				}
 			}
+			System.err.println(i + "/" + _imageWriter.getNx());
 		}
+
 	}
+	
 	
 	private Color calcColor(Point3D point) {
 		return _scene.get_ambientLight().getIntensity();

@@ -15,8 +15,8 @@ public class Scene {
   /***************** Constructors **********************/ 
  
   public Scene(String sceneName) {
-	   
 			_sceneName = sceneName;
+			_ambientLight =new AmbientLight();
 			_camera =  new Camera(new Point3D(0.0 ,0.0 ,0.0), new Vector (0.0, 1.0, 0.0), new Vector (0.0, 0.0, -1.0));
 			_screenDistance = 1;
 			_geometries = new Geometries();
@@ -60,8 +60,8 @@ public class Scene {
 		this._ambientLight = _ambientLight;
 	}
 	
-	public void set_geometries(Geometries _geometries) {
-		this._geometries = _geometries;
+	public void set_geometries(Geometries geometries) {
+		this._geometries = geometries;
 	}
 	
 	
