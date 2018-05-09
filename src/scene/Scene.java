@@ -16,7 +16,6 @@ public class Scene {
  
   public Scene(String sceneName) {
 			_sceneName = sceneName;
-			_ambientLight =new AmbientLight();
 			_camera =  new Camera(new Point3D(0.0 ,0.0 ,0.0), new Vector (0.0, 1.0, 0.0), new Vector (0.0, 0.0, -1.0));
 			_screenDistance = 1;
 			_geometries = new Geometries();
