@@ -1,12 +1,7 @@
 package unitTests;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
-import elements.Camera;
-import javafx.scene.image.WritablePixelFormat;
 import primitives.Color;
-import primitives.Point3D;
-import primitives.Vector;
 import renderer.ImageWriter;
 
 public class ImageWriterTests {

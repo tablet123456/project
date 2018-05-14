@@ -1,6 +1,7 @@
 package geometries;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import primitives.Point3D;
 import primitives.Ray;
@@ -26,9 +27,9 @@ public class Geometries extends Geometry {
 	}
 
 	@Override
-	public ArrayList<Point3D> findintersection(Ray ray) throws Exception {
-			findintersection = new ArrayList<Point3D>();
-			ArrayList<Point3D> intersections = new ArrayList<Point3D>();
+	public List<Point3D> findintersection(Ray ray) throws Exception {
+			ArrayList<Point3D> findintersection = new ArrayList<Point3D>();
+			List<Point3D> intersections = new ArrayList<Point3D>();
 			for(Geometry geometry: geometries){
 				intersections = geometry.findintersection(ray);
 				for(Point3D point: intersections)

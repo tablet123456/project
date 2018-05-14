@@ -1,9 +1,13 @@
 package scene;
 import geometries.*;
 import primitives.*;
-import java.awt.Color;
 import elements.*;
-
+/**
+ * present a scene by having name, camera, color for the background, an ambientLight,
+ * our geometries and the distance between the camera and the view plane
+ * @author Tzvi Bloom and daniel schwalb
+ *
+ */
 public class Scene {
   String _sceneName;
   private Color _background;
@@ -51,8 +55,8 @@ public class Scene {
 		this._sceneName = _sceneName;
 	}
 	
-	public void set_background(Color _background) {
-		this._background = _background;
+	public void set_background(Color color) {
+		this._background = color;
 	}
 	
 	public void set_ambientLight(AmbientLight _ambientLight) {

@@ -1,10 +1,11 @@
 package geometries;
-import java.util.ArrayList;
+import java.util.List;
+
 import primitives.*;
 
 	public abstract class Geometry {
 		
-		ArrayList<Point3D> findintersection;
+
 		
 		/********** Constructors ***********/
 		
@@ -16,7 +17,7 @@ import primitives.*;
 			
 		}
 		public abstract Vector getNormal(Point3D point); 
-		public abstract ArrayList<Point3D> findintersection(Ray ray) throws Exception ;
+		public abstract List<Point3D> findintersection(Ray ray) throws Exception ;
 		
 	}
 

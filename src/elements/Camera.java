@@ -1,7 +1,7 @@
 package elements;
 import primitives. *;
 public class Camera {
-	Point3D _p0;
+	private Point3D _p0;
 	Vector _vUp;
 	Vector _vTo;
 	Vector _vRight;
@@ -90,8 +90,8 @@ public class Camera {
 		double Xi=(i-(Nx-1)/2.0)*Rx;
 		double Yi=(j-(Ny-1)/2.0)*Ry;
 		Point3D pij=new Point3D (Pc.add((_vRight.scale(Xi)).add(_vUp.scale(-Yi))));
-		Vector vij=new Vector(pij.vectorsubtract(_p0)).normalize();
-		return new Ray( pij,vij);
+		Vector vij=new Vector(pij.vectorsubtract(_p0).normalize());
+		return new Ray( _p0,vij);
 		}
 		
 	

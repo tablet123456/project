@@ -1,6 +1,7 @@
 package geometries;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import primitives.Point3D;
 import primitives.Ray;
@@ -56,8 +57,9 @@ public class Triangle extends Plane {
 		return this._p1.equals(other._p1) && this._p2.equals(other._p2) && this._p3.equals(other._p3);
 	}
 	/***************** Operations ********************/ 
-	public ArrayList<Point3D> findintersection(Ray ray) throws Exception {
-		ArrayList<Point3D>intersection= new ArrayList<Point3D>();
+	@Override
+	public List<Point3D> findintersection(Ray ray) throws Exception {
+		List<Point3D>intersection= new ArrayList<Point3D>();
 		intersection=super.findintersection(ray);
 		if(intersection.size()==0) {
 			throw new Exception("no intersections with the plane");
@@ -67,21 +69,18 @@ public class Triangle extends Plane {
 		Vector v1=(this._p1.vectorsubtract(ray.get_p0()));
 		Vector v2=(this._p2.vectorsubtract(ray.get_p0()));
 		Vector v3=(this._p3.vectorsubtract(ray.get_p0()));
-		Vector N1=((v1._crossproduct(v2)).normalize());
-		Vector N2=((v2._crossproduct(v3)).normalize());
-		Vector N3=((v3._crossproduct(v1)).normalize());
+		Vector N1=((v1.crossProduct(v2)).normalize());
+		Vector N2=((v2.crossProduct(v3)).normalize());
+		Vector N3=((v3.crossProduct(v1)).normalize());
 		Point3D p=new Point3D(intersection.get(0));
 		double q1=((p.vectorsubtract(ray.get_p0()))._dotproduct(N1));
 		double q2=((p.vectorsubtract(ray.get_p0()))._dotproduct(N2));
 		double q3=((p.vectorsubtract(ray.get_p0()))._dotproduct(N3));
-		if((q1>0&&q2>0&&q3>0)||(q1<0&&q2<0&&q3<0))
-			return intersection;
-			else
-			{
-				intersection.remove(0);
-				return intersection;
-			}
-	}
+		if(!((q1>0&&q2>0&&q3>0)||(q1<0&&q2<0&&q3<0)))
+			throw new Exception("no intersections with the triangle");
+		return intersection;
+				
+		}
 	}
 	@Override
 	public Vector getNormal(Point3D point) {

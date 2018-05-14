@@ -11,9 +11,9 @@ public class Sphere extends RadialGeometry {
 	
 	/********** Constructors ***********/
 
-	public Sphere(double radius, Point3D middle) {
+	public Sphere(double radius, Point3D center) {
 		super(radius);
-		this._center= new Point3D(middle);
+		this._center= new Point3D(center);
 	}
 
 	public Sphere(RadialGeometry radius, Sphere sphere) {
@@ -34,19 +34,19 @@ public class Sphere extends RadialGeometry {
 	}
 	/***************** Operations ********************/
 	
-	public ArrayList<Point3D> findintersection(Ray ray) {
+	public ArrayList<Point3D> findintersection(Ray ray) throws Exception {
 		ArrayList<Point3D> intersection=new ArrayList<Point3D>();
 		
 		Vector u=new Vector(this.getmiddle().vectorsubtract(ray.get_p0()));
 		
-		ray=new Ray(ray.get_p0(),(ray.get_direction()._normalize()));
+		ray=new Ray(ray.get_p0(),(ray.get_direction()));
 		
 		double tm =(u.dotProduct(ray.get_direction()));
-		double d=Math.sqrt(Math.pow(u._length(), 2)-(Math.pow(tm, 2)));
+		double d=Math.sqrt(u.dotProduct(u)-Math.pow(tm,2));
 		
 		if (d>=this.get()) 
-			return intersection;
-			
+			throw new Exception("no intersections with the sphere");
+		else {	
 		double th=Math.sqrt(Math.pow(this.get(), 2)-(Math.pow(d, 2)));
 		double t1 =tm+th;
 		
@@ -56,7 +56,7 @@ public class Sphere extends RadialGeometry {
 		double t2 =tm-th;
 		if(t2>=0)
 			intersection.add(new Point3D(ray.get_p0().add(ray.get_direction().scale(t2))));
-		
+		}
 		return intersection;
 			
 	}

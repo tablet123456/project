@@ -1,11 +1,8 @@
 package renderer;
 import java.util.ArrayList;
 import java.util.List;
-import elements.*;
-import geometries.*;
 import primitives.*;
 import scene.Scene;
-
 
 public class Render {
 	Scene _scene;
@@ -32,10 +29,10 @@ public class Render {
 		this._imageWriter = _imageWriter;
 	}
 	public void printGrid(int grid){
-		for(int i = 0; i < _imageWriter.getWidth()-1;i++){
-			for(int j = 0; j < _imageWriter.getHeight()-1;j++){
+		for(int i = 0; i < _imageWriter.getNx()-1;i++){
+			for(int j = 0; j < _imageWriter.getNy()-1;j++){
 				if (((i+1)%grid == 0) || (((j+1)%grid) == 0))
-					_imageWriter.writePixel(i, j, 255,255,255);
+					_imageWriter.writePixel(i, j, 192,192,192);
 			}
 		}
 		_imageWriter.writeToimage();
@@ -48,7 +45,7 @@ public class Render {
 		_imageWriter.writeToimage();
 	}
 
-	public void renderImage() {
+	public void renderImage() throws Exception  {
 		for (int i = 0; i < _imageWriter.getNx(); i++) {
 			for (int j = 0; j < _imageWriter.getNy(); j++) {
 				Ray ray = _scene.get_camera().constructRayThroughPixel(_imageWriter.getNx(), _imageWriter.getNy(), i, j,_scene.get_screenDistance(), _imageWriter.getWidth(), _imageWriter.getHeight());
@@ -65,9 +62,8 @@ public class Render {
 					// _imageWriter.writePixel(i, j, 255,255,255);
 				}
 			}
-			System.err.println(i + "/" + _imageWriter.getNx());
+			
 		}
-
 	}
 	
 	

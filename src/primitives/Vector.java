@@ -36,11 +36,11 @@ public class Vector {
 		Vector other = new Vector((Vector)(obj));
 		return (this.getHead()==other.getHead());
 	}
+	
 	@Override
 	public String toString() {
-		return ""+ _head;
+		return "Vector [_head=" + _head + "]";
 	}
-	
 	/***************** Operations ********************/ 
 	
 	public Vector add(Vector vector) {
