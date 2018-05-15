@@ -1,6 +1,9 @@
 package geometries;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import primitives.Point3D;
 import primitives.Ray;
@@ -34,31 +37,37 @@ public class Sphere extends RadialGeometry {
 	}
 	/***************** Operations ********************/
 	
-	public ArrayList<Point3D> findintersection(Ray ray) throws Exception {
-		ArrayList<Point3D> intersection=new ArrayList<Point3D>();
+	public Map<Geometry, List<Point3D>> findintersection(Ray ray)  {
+		findintersection =new HashMap<Geometry, List<Point3D>>();
+		List<Point3D> intersection=new ArrayList<Point3D>();
 		
-		Vector u=new Vector(this.getmiddle().vectorsubtract(ray.get_p0()));
+		Vector u = getmiddle().vectorsubtract(ray.get_p0());
+		Vector v = ray.get_direction();
 		
-		ray=new Ray(ray.get_p0(),(ray.get_direction()));
+		double tm =(u.dotProduct(v));
+		double d=Math.sqrt(u.dotProduct(u)-tm*tm);
 		
-		double tm =(u.dotProduct(ray.get_direction()));
-		double d=Math.sqrt(u.dotProduct(u)-Math.pow(tm,2));
+		if (d > get()) {
+			intersection.clear();
+			findintersection.put(this, intersection);
+			return findintersection;
+		}
+		else {
+			
 		
-		if (d>=this.get()) 
-			throw new Exception("no intersections with the sphere");
-		else {	
-		double th=Math.sqrt(Math.pow(this.get(), 2)-(Math.pow(d, 2)));
+		double th=Math.sqrt(get()*get()-d*d);
 		double t1 =tm+th;
 		
-		if(t1>=0)
-			intersection.add(new Point3D(ray.get_p0().add(ray.get_direction().scale(t1))));
+		if(t1>0)
+			intersection.add(new Point3D(ray.get_p0().add(v.scale(t1))));
 
 		double t2 =tm-th;
-		if(t2>=0)
-			intersection.add(new Point3D(ray.get_p0().add(ray.get_direction().scale(t2))));
-		}
-		return intersection;
-			
+		if(t2>0)
+			intersection.add(new Point3D(ray.get_p0().add(v.scale(t2))));
+		
+		findintersection.put(this, intersection);
+		return findintersection;
+		}	
 	}
 
 	@Override

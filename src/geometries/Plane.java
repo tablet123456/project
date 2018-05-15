@@ -1,7 +1,9 @@
 package geometries;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import primitives.*;
 
@@ -44,17 +46,22 @@ public class Plane extends Geometry {
 		return "Plane [_p=" + _p + ", _normal=" + _normal + "]";
 	}
 	/***************** Operations ********************/
-	public List<Point3D> findintersection(Ray ray) throws Exception{
-		ArrayList<Point3D> intersection=new ArrayList<Point3D>();
-		ray=new Ray(ray.get_p0(),ray.get_direction().normalize());
-		double t=(this._normal.dotProduct(this._p.vectorsubtract(ray.get_p0())))/(this._normal.dotProduct(ray.get_direction()));
+	public Map<Geometry, List<Point3D>> findintersection(Ray ray) {
+		findintersection = new HashMap<Geometry, List<Point3D>>();
+		List<Point3D> intersection=new ArrayList<Point3D>();
+		double t=(_normal.dotProduct(_p.vectorsubtract(ray.get_p0())))/Math.abs(_normal.dotProduct(ray.get_direction()));
 		if(!(t>=0)) {
-			throw new Exception("no intersections with the plane");
+			intersection.clear();
+			findintersection.put(this, intersection);
+			return findintersection;
 			
 		}
+		else {
+			
 			intersection.add(new Point3D(ray.get_p0().add(ray.get_direction().scale(t))));
-	        return intersection;
-		
+			findintersection.put(this, intersection);
+			return findintersection;
+		}
 			
 	}
 	

@@ -2,6 +2,7 @@ package geometries;
 
 
 import java.util.List;
+import java.util.Map;
 
 import primitives.*;
 
@@ -32,7 +33,7 @@ public class Cylinder extends RadialGeometry {
 	/***************** Operations ********************/ 
 	
 	
-	public List<Point3D> findintersection(Ray ray) throws Exception{
+	public Map<Geometry, List<Point3D>> findintersection(Ray ray) {
 		return null;
 	}
 	@Override

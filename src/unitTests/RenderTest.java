@@ -18,15 +18,15 @@ public class RenderTest {
 		Geometries geometries = new Geometries();
 		scene.set_geometries(geometries);
 		scene.set_ambientLight(new AmbientLight(new Color (255,255,255),1));
-		//geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150)));
+		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150)));
 		
-		//geometries.addGeometry(new Triangle(new Point3D( 100, 0, 149),new Point3D(  0, 100, 149),new Point3D( 100, 100, 149)));
+		geometries.addGeometry(new Triangle(new Point3D( 100, 0, 149),new Point3D(  0, 100, 149),new Point3D( 100, 100, 149)));
 		
 		geometries.addGeometry(new Triangle(new Point3D( 100, 0, 149),new Point3D(  0, -100, 149),new Point3D( 100,-100, 149)));
 		
-		//geometries.addGeometry(new Triangle(new Point3D( -100, 0, 149),new Point3D(  0, 100, 149),new Point3D( -100, 100, 149)));
+		geometries.addGeometry(new Triangle(new Point3D( -100, 0, 149),new Point3D(  0, 100, 149),new Point3D( -100, 100, 149)));
 		
-		//geometries.addGeometry(new Triangle(new Point3D(-100, 0, 149),new Point3D(  0,  -100, 149),new Point3D(-100, -100, 149)));
+		geometries.addGeometry(new Triangle(new Point3D(-100, 0, 149),new Point3D(  0,  -100, 149),new Point3D(-100, -100, 149)));
 		
 		ImageWriter imageWriter = new ImageWriter("test0", 500, 500, 500, 500);
 		Render render = new Render(imageWriter, scene);

@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 import elements .*;
@@ -33,15 +34,20 @@ class SphereTests {
 					
 					rays[i][j] = camera.constructRayThroughPixel(WIDTH, HEIGHT, j, i, 1, 3 * WIDTH, 3 * HEIGHT);
 					
-					List<Point3D> rayIntersectionPoints = sphere.findintersection(rays[i][j]);
-					List<Point3D> rayIntersectionPoints2 = sphere2.findintersection(rays[i][j]);
+					Map<Geometry, List<Point3D>> rayIntersectionPoints = sphere.findintersection(rays[i][j]);
+					Map<Geometry, List<Point3D>> rayIntersectionPoints2 = sphere2.findintersection(rays[i][j]);
 					
-					for (Point3D iPoint: rayIntersectionPoints)
-						intersectionPointsSphere.add(iPoint);
-					
-					for (Point3D iPoint: rayIntersectionPoints2)
-						intersectionPointsSphere2.add(iPoint);
-					
+					rayIntersectionPoints.forEach((k, v) -> {
+						List<Point3D> l = new ArrayList<Point3D>();
+						l = rayIntersectionPoints.get(k);
+						intersectionPointsSphere.addAll(l);
+					});
+
+					rayIntersectionPoints2.forEach((k, v) -> {
+						List<Point3D> l = new ArrayList<Point3D>();
+						l = rayIntersectionPoints2.get(k);
+						intersectionPointsSphere2.addAll(l);
+					});
 				}
 			}
 				assertTrue(intersectionPointsSphere.size() == 2);

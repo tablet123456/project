@@ -1,11 +1,12 @@
 package geometries;
-import java.util.List;
+import java.util.*;
 
 import primitives.*;
+import primitives.Vector;
 
 	public abstract class Geometry {
-		
-
+		Map<Geometry, List<Point3D>> findintersection = new HashMap<Geometry, List<Point3D>>();
+		Color  _emmission;
 		
 		/********** Constructors ***********/
 		
@@ -17,7 +18,7 @@ import primitives.*;
 			
 		}
 		public abstract Vector getNormal(Point3D point); 
-		public abstract List<Point3D> findintersection(Ray ray) throws Exception ;
+		public abstract Map<Geometry,List<Point3D>> findintersection(Ray ray)  ;
 		
 	}
 

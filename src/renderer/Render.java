@@ -1,6 +1,10 @@
 package renderer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import geometries.Geometry;
 import primitives.*;
 import scene.Scene;
 
@@ -32,7 +36,7 @@ public class Render {
 		for(int i = 0; i < _imageWriter.getNx()-1;i++){
 			for(int j = 0; j < _imageWriter.getNy()-1;j++){
 				if (((i+1)%grid == 0) || (((j+1)%grid) == 0))
-					_imageWriter.writePixel(i, j, 192,192,192);
+					_imageWriter.writePixel(i, j, 255,255,255);
 			}
 		}
 		_imageWriter.writeToimage();
@@ -45,11 +49,13 @@ public class Render {
 		_imageWriter.writeToimage();
 	}
 
-	public void renderImage() throws Exception  {
+	public void renderImage()   {
 		for (int i = 0; i < _imageWriter.getNx(); i++) {
 			for (int j = 0; j < _imageWriter.getNy(); j++) {
 				Ray ray = _scene.get_camera().constructRayThroughPixel(_imageWriter.getNx(), _imageWriter.getNy(), i, j,_scene.get_screenDistance(), _imageWriter.getWidth(), _imageWriter.getHeight());
-				ArrayList<Point3D> intersectionsPoints = new ArrayList<Point3D>(_scene.get_geometries().findintersection(ray));
+				
+				Map<Geometry, List<Point3D>> intersectionsPoints = new HashMap<Geometry, List<Point3D>>(_scene.get_geometries().findintersection(ray));
+				
 				if (intersectionsPoints.size() == 0)
 					_imageWriter.writePixel(i, j, _scene.get_background().getColor());
 				else {
@@ -67,15 +73,17 @@ public class Render {
 	}
 	
 	
-	private Color calcColor(Point3D point) {
-		return _scene.get_ambientLight().getIntensity();
-		
+	private Color calcColor(Geometry geometry ,Point3D point) {
+		Color color =_scene.get_ambientLight().getIntensity();
+		color = color.add(geometry.getEmission());
+		return color;
 	}
-	private Point3D getClosestPoint(List<Point3D> intersectionPoints) {
+	private Point3D getClosestPoint(Map<Geometry, List<Point3D>> intersectionsPoints) {
 		double distance =Double.MAX_VALUE;
 		Point3D p0=_scene.get_camera().get_p0();
 		Point3D minDistancePoint = null;
-		for(Point3D ipoint: intersectionPoints) {
+		
+		for(Point3D ipoint: intersectionsPoints) {
 			if(p0.distance(ipoint)<distance) {
 				minDistancePoint = new Point3D(ipoint);
 				distance=p0.distance(ipoint);

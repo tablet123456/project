@@ -5,6 +5,7 @@ import elements.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
@@ -34,16 +35,22 @@ class TriangleTests {
 			for (int j = 0; j < width; j++)
 			{
 				rays[i][j] = camera.constructRayThroughPixel(width, height, i, j, 1, 3 * width, 3 * height);
-				List<Point3D> rayIntersectionPoints = triangle.findintersection(rays[i][j]);
-				List<Point3D> rayIntersectionPoints2= triangle2.findintersection(rays[i][j]);
+				Map<Geometry, List<Point3D>> rayIntersectionPoints = triangle.findintersection(rays[i][j]);
+				Map<Geometry, List<Point3D>> rayIntersectionPoints2= triangle2.findintersection(rays[i][j]);
 				
-				
-				for (Point3D iPoint: rayIntersectionPoints)
-					intersectionPointsTriangle.add(iPoint);
-				
-				for (Point3D iPoint: rayIntersectionPoints2)
-					intersectionPointsTriangle2.add(iPoint);
+				rayIntersectionPoints.forEach((k, v) -> {
+					List<Point3D> l = new ArrayList<Point3D>();
+					l = rayIntersectionPoints.get(k);
+					intersectionPointsTriangle.addAll(l);
+				});
 
+				rayIntersectionPoints2.forEach((k, v) -> {
+					List<Point3D> l = new ArrayList<Point3D>();
+					l = rayIntersectionPoints2.get(k);
+					intersectionPointsTriangle2.addAll(l);
+				});
+				
+				
 			}
 		}
 		assertTrue(intersectionPointsTriangle.size() == 1);
