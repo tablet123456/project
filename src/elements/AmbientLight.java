@@ -10,8 +10,8 @@ public class AmbientLight {
 	
 	
 	public AmbientLight(Color color, double ka) {
-		_color = color;
-		_Ka = ka;
+		_color = new Color (color);
+		_Ka =  ka;
 		_intensity = new Color(_color).scale(_Ka);
 	}
 

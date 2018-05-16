@@ -37,10 +37,6 @@ public class Plane extends Geometry {
 		return _p;
 	}
 
-	@Override
-	public Vector getNormal(Point3D point) {
-		return _normal;
-	}
 	
 	
 	/***************** Administration  ********************/
@@ -68,6 +64,12 @@ public class Plane extends Geometry {
 		}
 			
 	}
+	
+	@Override
+	public Vector getNormal(Point3D point) {
+		return _normal;
+	}
+	
 	
 }
 	  

@@ -24,7 +24,6 @@ public class Geometries extends Geometry {
 
 	@Override
 	public Vector getNormal(Point3D point) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

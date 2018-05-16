@@ -92,9 +92,9 @@ public class Color {
 	public Color scale(double exp) {
 		if (exp < 0 || exp > 1)
 			throw new ArithmeticException("Scaling color with a value out of 0 to 1 range");
-		_red /= exp;
-		_green /= exp;
-		_blue /= exp;
+		_red *= exp;
+		_green *= exp;
+		_blue *= exp;
 		return new Color(_red,_green,_blue);
 	}
 
@@ -102,9 +102,9 @@ public class Color {
 	public Color reduce(double exp) {
 		if (exp < 0 || exp > 1)
 			throw new ArithmeticException("Reducing color with a value smaller than 1");
-		_red *= exp;
-		_green *= exp;
-		_blue *= exp;
+		_red /= exp;
+		_green /= exp;
+		_blue /= exp;
 		return new Color(_red,_green,_blue);
 		
 	}

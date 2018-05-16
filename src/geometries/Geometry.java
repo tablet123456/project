@@ -8,7 +8,7 @@ import primitives.Vector;
 		Map<Geometry, List<Point3D>> findintersection = new HashMap<Geometry, List<Point3D>>();
 		
 		protected Color  _emmission;
-		
+		protected Material _material;
 		/********** Constructors ***********/
 		
 		// Default constructor

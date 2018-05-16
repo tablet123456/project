@@ -70,7 +70,7 @@ public class Render {
 
 				}
 			}
-			System.err.println(i + "/" + _imageWriter.getNx());
+			
 		}
 	}
 
