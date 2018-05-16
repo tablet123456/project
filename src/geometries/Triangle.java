@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import primitives.Color;
 import primitives.Point3D;
 import primitives.Ray;
 import primitives.Vector;
@@ -15,18 +16,20 @@ public class Triangle extends Plane {
 	private Point3D _p3;
 
 	/***************** Constructors **********************/
-	public Triangle(Point3D point1, Point3D point2, Point3D point3) {
-		super(point1, point2, point3);
-		this._p1 = new Point3D(point1);
-		this._p2 = new Point3D(point2);
-		this._p3 = new Point3D(point3);
+	public Triangle(Point3D point1, Point3D point2, Point3D point3,Color emmission) {
+		super(point1, point2, point3,emmission);
+		_p1 = new Point3D(point1);
+		_p2 = new Point3D(point2);
+		_p3 = new Point3D(point3);
+		_emmission = new Color(emmission);
 	}
 
 	public Triangle(Triangle triangle) {
-		super(triangle.get_p1(), triangle.get_p2(), triangle.get_p3());
-		this._p1 = triangle.get_p1();
-		this._p2 = triangle.get_p2();
-		this._p3 = triangle.get_p3();
+		super(triangle);
+		_p1 = new Point3D(triangle._p1);
+		_p2 = new Point3D( triangle._p2);
+		_p3 = new Point3D( triangle._p3);
+		_emmission= new Color (triangle._emmission);
 	}
 
 	/***************** Getters/Setters **********************/
@@ -49,16 +52,33 @@ public class Triangle extends Plane {
 		return " " + _p1 + " " + _p2 + " " + _p3;
 	}
 
+
+
 	@Override
 	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
 		if (obj == null)
 			return false;
 		if (!(obj instanceof Triangle))
 			return false;
-		if (this == obj)
-			return true;
-		Triangle other = new Triangle((Triangle) obj);
-		return this._p1.equals(other._p1) && this._p2.equals(other._p2) && this._p3.equals(other._p3);
+		Triangle other = (Triangle) obj;
+		if (_p1 == null) {
+			if (other._p1 != null)
+				return false;
+		} else if (!_p1.equals(other._p1))
+			return false;
+		if (_p2 == null) {
+			if (other._p2 != null)
+				return false;
+		} else if (!_p2.equals(other._p2))
+			return false;
+		if (_p3 == null) {
+			if (other._p3 != null)
+				return false;
+		} else if (!_p3.equals(other._p3))
+			return false;
+		return true;
 	}
 
 	/***************** Operations ********************/
@@ -72,14 +92,17 @@ public class Triangle extends Plane {
 			return findintersection;
 		} 
 		else {
-
+			findintersection.forEach((k,v) ->
+			{k=this;
+				intersection.addAll(v);
+			});
 			Vector v1 = (this._p1.vectorsubtract(p0));
 			Vector v2 = (this._p2.vectorsubtract(p0));
 			Vector v3 = (this._p3.vectorsubtract(p0));
 			Vector N1 = (v1.crossProduct(v2)).normalize();
 			Vector N2 = (v2.crossProduct(v3)).normalize();
 			Vector N3 = (v3.crossProduct(v1)).normalize();
-			Point3D p = new Point3D(intersection.get(0));
+			Point3D p = new Point3D(findintersection.get(this).get(0));
 			Vector pp0 = new Vector(p.vectorsubtract(p0));
 			double q1 = (pp0._dotproduct(N1));
 			double q2 = (pp0._dotproduct(N2));

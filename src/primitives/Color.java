@@ -95,7 +95,7 @@ public class Color {
 		_red /= exp;
 		_green /= exp;
 		_blue /= exp;
-		return this;
+		return new Color(_red,_green,_blue);
 	}
 
 	// reduce color with exponent
@@ -105,7 +105,7 @@ public class Color {
 		_red *= exp;
 		_green *= exp;
 		_blue *= exp;
-		return this;
+		return new Color(_red,_green,_blue);
 		
 	}
 

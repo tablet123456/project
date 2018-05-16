@@ -12,7 +12,7 @@ public class Main {
 		Coordinate coord = new Coordinate(1);
 		Coordinate coord1 = new Coordinate(3);
 		Coordinate coord2 =new Coordinate(2);
-		
+		Color c= new Color(255,128,0);
 		Point3D point3 = new Point3D(5, 4, 3);
 		Point3D point4 = new Point3D(point3);
 		point4 = new Point3D(1 , 2, 3);
@@ -29,11 +29,11 @@ public class Main {
 		
 		Cylinder cylinder = new Cylinder(3, ray);
 		
-		Plane plane = new Plane(point3, vector);
+		Plane plane = new Plane(point3, vector,c);
 		
-		Sphere sphere = new Sphere(7, point4);
+		Sphere sphere = new Sphere(7, point4,c);
 		
-		Triangle triangle = new Triangle(point4, point3, point5);
+		Triangle triangle = new Triangle(point4, point3, point5,c);
 		
 		        // Checking Coordinates class
 				

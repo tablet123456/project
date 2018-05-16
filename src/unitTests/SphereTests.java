@@ -19,8 +19,8 @@ class SphereTests {
 			Ray[][] rays = new Ray [HEIGHT][WIDTH];
 			Camera camera = new Camera(new Point3D(0.0 ,0.0 ,0.0),new Vector (0.0, 1.0, 0.0),new Vector (0.0, 0.0, -1.0));
 			
-			Sphere sphere = new Sphere(1, new Point3D(0.0, 0.0, -3.0));
-			Sphere sphere2 = new Sphere(10, new Point3D(0.0, 0.0, -3.0));
+			Sphere sphere = new Sphere(1, new Point3D(0.0, 0.0, -3.0),new Color(255,128,0));
+			Sphere sphere2 = new Sphere(10, new Point3D(0.0, 0.0, -3.0),new Color(255,128,0));
 		
 			//Only the center ray intersect the sphere in two locations
 			List<Point3D> intersectionPointsSphere = new ArrayList<Point3D>();

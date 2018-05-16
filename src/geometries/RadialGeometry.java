@@ -18,7 +18,7 @@ public abstract class RadialGeometry extends Geometry {
 		this._radius = radial._radius;
 	}
 	/************** Getters/Setters *******/
-    public double get() {
+    public double getradius() {
     	return _radius;
     }
 

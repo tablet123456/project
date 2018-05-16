@@ -8,9 +8,9 @@ public class Camera {
 	/***************** Constructors **********************/ 
 	
 	public Camera(Point3D p0,Vector vUp,Vector vTo) {
-		this._p0=new Point3D (p0);
-		this._vUp=(new Vector(vUp)._normalize());
-		this._vTo=(new Vector(vTo)._normalize());
+		_p0=new Point3D (p0);
+		_vUp=(new Vector(vUp)._normalize());
+		_vTo=(new Vector(vTo)._normalize());
 		double x=vTo.dotProduct(vUp);
 		if(x!=0) {
 			_vRight=null;

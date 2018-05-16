@@ -11,7 +11,7 @@ import primitives.Vector;
 
 public class Geometries extends Geometry {
 	
-	private ArrayList<Geometry> geometries = new ArrayList<Geometry>();
+	private List<Geometry> geometries = new ArrayList<Geometry>();
 	
 	public void addGeometry(Geometry geometry) {
 		geometries.add(geometry);
@@ -32,28 +32,19 @@ public class Geometries extends Geometry {
 	public Map<Geometry, List<Point3D>> findintersection(Ray ray)  {
 		Map<Geometry, List<Point3D>> findintersection = new HashMap<Geometry, List<Point3D>>();
 			List<Point3D> intersection = new ArrayList<Point3D>();
-			if (findintersection.isEmpty()) {
-				findintersection.put(this, intersection);
-				return findintersection;
-			}
-		else {
-				findintersection.forEach((k,v)->{
-				List<Point3D> l = new ArrayList<Point3D>();
-				l = findintersection.get(k);
-				intersection.addAll(l);
-				findintersection.put(this, intersection);
-			});
-		}
-			
-			/**for(Geometry geometry: geometries){
-				intersections = geometry.findintersection(ray);
-				for(Point3D point: intersections)
-					findintersection.add(point);
-			}**/
+			List<Point3D> intersections = new ArrayList<Point3D>();
+			Map<Geometry, List<Point3D>> map = new HashMap<Geometry, List<Point3D>>();
+			for (Geometry geometry : geometries) {
+				map = geometry.findintersection(ray);
+				intersections = map.get(geometry);
+				if (intersections != null) {
+					if (!intersections.isEmpty()){
+						intersection.addAll(intersections);
+						findintersection.put(geometry, intersections);
+						}
+					}
+				}
 			return findintersection;
-		
+			}	
+	
 	}
-
-	
-	
-}

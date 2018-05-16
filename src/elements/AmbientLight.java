@@ -31,7 +31,7 @@ public class AmbientLight {
 	public void setKa(double ka) {
 		_Ka = ka;
 	}
-	// retuurn final Ambiant light after multiply by Ka 
+	// return final Ambient light after multiply by Ka 
 	public Color getIntensity()
 	{
 		return _intensity;
