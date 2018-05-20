@@ -5,14 +5,15 @@ import elements.*;
 /**
  * present a scene by having name, camera, color for the background, an ambientLight,
  * our geometries and the distance between the camera and the view plane
- * @author Tzvi Bloom and daniel schwalb
- *
+ * @author Tzvi Bloom and Daniel schwalb
+ * 
  */
 public class Scene {
   String _sceneName;
   private Color _background;
   private AmbientLight _ambientLight;
   private Geometries _geometries;
+  private LightSource _lights;
   private Camera _camera;
   private double _screenDistance;
   
@@ -23,6 +24,7 @@ public class Scene {
 			_camera =  new Camera(new Point3D(0.0 ,0.0 ,0.0), new Vector (0.0, 1.0, 0.0), new Vector (0.0, 0.0, -1.0));
 			_screenDistance = 1;
 			_geometries = new Geometries();
+			_lights= new LightSource();
 		}
 	
  
@@ -123,7 +125,8 @@ public class Scene {
   public void addGeometry(Geometry geometry) {
 	  _geometries.addGeometry(geometry);
   }
-
+ 
+  
 
   
  

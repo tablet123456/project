@@ -1,10 +1,12 @@
 package elements;
 import primitives. *;
 public class Camera {
+	
 	private Point3D _p0;
 	Vector _vUp;
 	Vector _vTo;
 	Vector _vRight;
+	
 	/***************** Constructors **********************/ 
 	
 	public Camera(Point3D p0,Vector vUp,Vector vTo) {
@@ -27,12 +29,15 @@ public class Camera {
 	public Point3D get_p0() {
 		return _p0;
 	}
+	
 	public Vector get_vUp() {
 		return _vUp;
 	}
+	
 	public Vector get_vTo() {
 		return _vTo;
 	}
+	
 	public Vector get_vRight() {
 		return _vRight;
 	}
@@ -92,19 +97,7 @@ public class Camera {
 		Point3D pij=new Point3D (Pc.add((_vRight.scale(Xi)).subtract(_vUp.scale(Yi))));
 		Vector vij=new Vector(pij.vectorsubtract(_p0).normalize());
 		return new Ray( _p0,vij);
-		}
-		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		}	
 	
 	
 	

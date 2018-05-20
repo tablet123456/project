@@ -1,8 +1,8 @@
 package elements;
 import primitives.Color;
 
-public class AmbientLight {
-	private Color _color;
+public class AmbientLight extends Light {
+	
 	private double _Ka;
 	private Color _intensity;
 	
@@ -16,13 +16,7 @@ public class AmbientLight {
 	}
 
 	/************** Getters/Setters *******/
-	public Color get_color() {
-		return _color;
-	}
-
-	public void set_color(Color _color) {
-		this._color = _color;
-	}
+	
 
 	public double getKa() {
 		return _Ka;

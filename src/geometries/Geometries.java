@@ -17,7 +17,7 @@ public class Geometries extends Geometry {
 		geometries.add(geometry);
 	}
 	
-	public void removeGeometry(Geometries geometry) {
+	public void removeGeometry(Geometry geometry) {
 		geometries.remove(geometry);
 	}
 	

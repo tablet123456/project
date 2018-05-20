@@ -29,7 +29,7 @@ public class Sphere extends RadialGeometry {
 	
 	/************** Getters/Setters *******/	
 	
-	public Point3D getmiddle() {
+	public Point3D get_center() {
 		return _center;
 	}
 	/***************** Administration  ********************/
@@ -63,15 +63,15 @@ public class Sphere extends RadialGeometry {
 		findintersection =new HashMap<Geometry, List<Point3D>>();
 		List<Point3D> intersection=new ArrayList<Point3D>();
 		
-		Vector u = getmiddle().vectorsubtract(ray.get_p0());
+		Vector u = get_center().vectorsubtract(ray.get_p0());
 		Vector v = ray.get_direction();
 		
 		double tm =(u.dotProduct(v));
 		double d=Math.sqrt(u.dotProduct(u)-tm*tm);
 		
-		if (!(d > getradius())) {
+		if (!(d > get_radius())) {
 		
-			double th=Math.sqrt(getradius()*getradius()-d*d);
+			double th=Math.sqrt(get_radius()*get_radius()-d*d);
 			double t1 =tm+th;
 		
 			if(t1>0)
@@ -88,8 +88,8 @@ public class Sphere extends RadialGeometry {
 
 	@Override
 	public Vector getNormal(Point3D point) {
-		if(point.distance(this.getmiddle())== this.getradius())
-			return (new Vector(point.vectorsubtract(this.getmiddle())).normalize());
+		if(point.distance(this.get_center())== this.get_radius())
+			return (new Vector(point.vectorsubtract(this.get_center())).normalize());
 		else
 			return null;
 	}

@@ -52,8 +52,6 @@ public class Triangle extends Plane {
 		return " " + _p1 + " " + _p2 + " " + _p3;
 	}
 
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

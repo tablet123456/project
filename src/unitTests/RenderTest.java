@@ -17,10 +17,11 @@ public class RenderTest {
 		scene.set_background(new Color(0, 0, 0));
 		Geometries geometries = new Geometries();
 		scene.set_geometries(geometries);
-		scene.set_ambientLight(new AmbientLight(new Color (255,255,255),0.1));
-		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150),new Color(192,192,192)));
+		scene.set_ambientLight(new AmbientLight(new Color (255,255,255),0.3));
 		
-		geometries.addGeometry(new Triangle(new Point3D(-100, 0, 149),new Point3D(  0,  -100, 149),new Point3D(-100, -100, 149),new Color(0,255,0)));
+		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150),new Color(0,0,0)));
+		
+		geometries.addGeometry(new Triangle(new Point3D(-100, 0, 149),new Point3D(  0,  -100, 149),new Point3D(-100, -100, 149),new Color(255,255,0)));
 		
 		geometries.addGeometry(new Triangle(new Point3D( 100, 0, 149),new Point3D(  0, -100, 149),new Point3D( 100,-100, 149),new Color(255,80,0)));
 		
@@ -33,6 +34,6 @@ public class RenderTest {
 		
 		render.renderImage();
 		render.printGrid(50);
-		render.printImage();
+		render.writeToimage();
 	}
 }
