@@ -49,6 +49,7 @@ public class Plane extends Geometry {
 	public String toString() {
 		return "Plane [_p=" + _p + ", _normal=" + _normal + "]";
 	}
+	
 	/***************** Operations ********************/
 	public Map<Geometry, List<Point3D>> findintersection(Ray ray) {
 		findintersection = new HashMap<Geometry, List<Point3D>>();

@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import elements.LightSource;
 import geometries.Geometry;
 import primitives.*;
 import scene.Scene;
@@ -16,6 +14,13 @@ import scene.Scene;
  * @author tzvibloom
  *
  */
+
+/****************** Constructors *************************/
+/****************** Getters/Setters **********************/
+/****************** Administration  **********************/
+/******************* Operations **************************/
+/********************* Helpers ***************************/
+
 public class Render {
 	Scene _scene;
 	ImageWriter _imageWriter;

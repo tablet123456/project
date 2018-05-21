@@ -7,7 +7,11 @@ import primitives.*;
  * @author tzvibloom
  *
  */
-
+/****************** Constructors *************************/
+/****************** Getters/Setters **********************/
+/****************** Administration  **********************/
+/******************* Operations **************************/
+/********************* Helpers ***************************/
 public abstract class Light {
 		
 	protected Color _color;

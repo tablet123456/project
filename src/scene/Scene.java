@@ -12,6 +12,13 @@ import elements.*;
  * @author Tzvi Bloom and Daniel schwalb
  * 
  */
+
+/****************** Constructors *************************/
+/****************** Getters/Setters **********************/
+/****************** Administration  **********************/
+/******************* Operations **************************/
+/********************* Helpers ***************************/
+
 public class Scene {
   String _sceneName;
   private Color _background;
@@ -87,7 +94,6 @@ public class Scene {
 	public void set_screenDistance(double _screenDistance) {
 		this._screenDistance = _screenDistance;
 	}   
-		// ***************** Administration  ******************** //
 
 	@Override
 	public String toString() {
@@ -128,8 +134,6 @@ public class Scene {
 			return false;
 		return true;
 	}
-	
-		// ***************** Operations ******************** // 
     
   public void addGeometry(Geometry geometry) {
 	  _geometries.addGeometry(geometry);

@@ -16,6 +16,12 @@ import primitives.Vector;
  *
  */
 
+/****************** Constructors *************************/
+/****************** Getters/Setters **********************/
+/****************** Administration  **********************/
+/******************* Operations **************************/
+/********************* Helpers ***************************/
+
 public class Sphere extends RadialGeometry {
 	private Point3D _center;
 	

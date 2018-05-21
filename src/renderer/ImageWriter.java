@@ -18,7 +18,7 @@ public class ImageWriter {
 	
 	private String _imageName;
 	
-	// ***************** Constructors ********************** // 
+	/***************** Constructors **********************/ 
 	public ImageWriter(String imageName, int width, int height, int Nx, int Ny) {
 		_imageName = imageName;
 		_imageWidth = width;
@@ -35,7 +35,7 @@ public class ImageWriter {
 				imageWriter._Nx, imageWriter._Ny);
 	}
 	
-	// ***************** Getters/Setters ********************** //
+	/***************** Getters/Setters **********************/
 	
 	public int getWidth()  { return _imageWidth;  }
 	public int getHeight() { return _imageHeight; }
@@ -46,7 +46,7 @@ public class ImageWriter {
 	public void setNy(int _Ny) { this._Ny = _Ny; }
 	public void setNx(int _Nx) { this._Nx = _Nx; }
 		
-	// ***************** Operations ******************** // 
+	/***************** Operations ********************/ 
 	
 	public void writeToimage(){
 		File ouFile = new File(PROJECT_PATH + "/" + _imageName + ".jpg");

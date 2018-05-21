@@ -14,6 +14,12 @@ import primitives.Vector;
  * @author tzvibloom
  *
  */
+/****************** Constructors *************************/
+/****************** Getters/Setters **********************/
+/****************** Administration  **********************/
+/******************* Operations **************************/
+/********************* Helpers ***************************/
+
 public class Geometries extends Geometry {
 	
 	private List<Geometry> geometries = new ArrayList<Geometry>();

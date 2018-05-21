@@ -6,6 +6,12 @@ package geometries;
  *
  */
 
+/****************** Constructors *************************/
+/****************** Getters/Setters **********************/
+/****************** Administration  **********************/
+/******************* Operations **************************/
+/********************* Helpers ***************************/
+
 public abstract class RadialGeometry extends Geometry {
 	private double _radius;
 	public RadialGeometry() {
@@ -29,7 +35,5 @@ public abstract class RadialGeometry extends Geometry {
 
 }
  
-// ***************** Administration  ******************** //
 
-// ***************** Operations ******************** // 
 

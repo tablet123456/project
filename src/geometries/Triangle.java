@@ -16,6 +16,12 @@ import primitives.Vector;
  *
  */
 
+/****************** Constructors *************************/
+/****************** Getters/Setters **********************/
+/****************** Administration  **********************/
+/******************* Operations **************************/
+/********************* Helpers ***************************/
+
 public class Triangle extends Plane {
 	private Point3D _p1;
 	private Point3D _p2;
