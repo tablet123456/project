@@ -10,7 +10,7 @@ public class AmbientLight extends Light {
 	
 	
 	public AmbientLight(Color color, double ka) {
-		_color = new Color (color);
+		super(color);
 		_Ka =  ka;
 		_intensity = new Color(_color).scale(_Ka);
 	}

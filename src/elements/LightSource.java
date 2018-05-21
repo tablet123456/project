@@ -1,7 +1,5 @@
 package elements;
-import java.util.ArrayList;
-import java.util.List;
-import geometries.*;
+
 import primitives.*;
 
 /**
@@ -10,20 +8,14 @@ import primitives.*;
  *
  */
 
-public class LightSource {
+public abstract class LightSource {
 	
-	public  Color getIntesity(Point3D point) {
-		return null;
-	}
-			
-	public  Vector getD(Point3D point) {
-		return null;
-	}
+	public abstract Color getIntesity(Point3D point);
 	
-	public  Vector getL(Point3D point) {
-		return null;
-	}
-			
+	public abstract Vector getD(Point3D point);
+	
+	public abstract Vector getL(Point3D point);
+		
 }
 
 

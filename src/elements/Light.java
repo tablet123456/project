@@ -1,6 +1,6 @@
 package elements;
 
-import primitives.Color;
+import primitives.*;
 
 /**
  * 
@@ -9,15 +9,26 @@ import primitives.Color;
  */
 
 public abstract class Light {
-	Color _color;
+		
+	protected Color _color;
 	
+	public Light(Color color) {
+		_color=new Color(color);
+	}
 	
 	
 	public Color get_color() {
 		return _color;
 	}
 
-	public abstract Color getIntensity();
+	public void set_color(Color _color) {
+		this._color = _color;
+	}
+
+
+	public Color getIntensity() {
+		return new Color(_color);
+	}
 
 	
 }

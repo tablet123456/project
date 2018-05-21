@@ -8,12 +8,15 @@ import primitives.*;
  */
 
 public class DirectionalLight extends Light {
-
-	public DirectionalLight() {
 	
-	}
 	Vector _direction;
-
+	
+	public DirectionalLight(Vector direction, Color color) {
+		super(color);
+		_direction =new Vector (direction);
+		
+	}
+	
 	public Vector getL(Point3D point) {
 		return getD(point);
 	}
@@ -23,6 +26,6 @@ public class DirectionalLight extends Light {
 	}
 	
 	public Color getIntensity() {
-		return null;
+		return getIntensity();
 	}
 }
