@@ -9,6 +9,11 @@ import primitives.Point3D;
 import primitives.Ray;
 import primitives.Vector;
 
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
 public class Geometries extends Geometry {
 	
 	private List<Geometry> geometries = new ArrayList<Geometry>();

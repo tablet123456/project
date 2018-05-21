@@ -1,5 +1,11 @@
 package primitives;
 
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
+
 public class Vector {
 	private Point3D _head;
 	/***************** Constructors **********************/ 

@@ -1,5 +1,11 @@
 package unitTests;
 
+/**
+ * 
+ * @author tzvibloom
+ * 
+ */
+
 import org.junit.jupiter.api.Test;
 
 import elements.AmbientLight;

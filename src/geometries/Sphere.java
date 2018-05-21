@@ -10,6 +10,12 @@ import primitives.Point3D;
 import primitives.Ray;
 import primitives.Vector;
 
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
+
 public class Sphere extends RadialGeometry {
 	private Point3D _center;
 	

@@ -9,7 +9,13 @@ import elements.LightSource;
 import geometries.Geometry;
 import primitives.*;
 import scene.Scene;
-
+/**the render checks if there is an intersection with each pixel.
+ * if there is no intersection the pixel is coloured black.
+ * the render also builds a grid 
+ * 
+ * @author tzvibloom
+ *
+ */
 public class Render {
 	Scene _scene;
 	ImageWriter _imageWriter;

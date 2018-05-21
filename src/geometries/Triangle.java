@@ -10,6 +10,12 @@ import primitives.Point3D;
 import primitives.Ray;
 import primitives.Vector;
 
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
+
 public class Triangle extends Plane {
 	private Point3D _p1;
 	private Point3D _p2;

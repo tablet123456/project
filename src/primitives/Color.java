@@ -1,5 +1,11 @@
 package primitives;
 
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
+
 public class Color {
 
 	private double _red;

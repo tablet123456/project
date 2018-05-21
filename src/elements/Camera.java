@@ -1,5 +1,13 @@
 package elements;
+
 import primitives. *;
+
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
+
 public class Camera {
 	
 	private Point3D _p0;

@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 import primitives.*;
-
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
 
 public class Plane extends Geometry {
 	private Point3D _p;

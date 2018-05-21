@@ -1,6 +1,11 @@
 package elements;
 import primitives.*;
 
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
 
 public class pointLight extends Light {
 	protected  Point3D _position;

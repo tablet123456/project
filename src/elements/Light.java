@@ -2,6 +2,12 @@ package elements;
 
 import primitives.Color;
 
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
+
 public abstract class Light {
 	Color _color;
 	
@@ -14,7 +20,7 @@ public abstract class Light {
 	public abstract Color getIntensity();
 
 	
-	}
+}
 	
 	
 

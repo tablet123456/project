@@ -1,11 +1,15 @@
-
 package elements;
 import java.util.ArrayList;
 import java.util.List;
 import geometries.*;
 import primitives.*;
 
-	
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
+
 public class LightSource {
 	
 	public  Color getIntesity(Point3D point) {
@@ -20,10 +24,10 @@ public class LightSource {
 		return null;
 	}
 			
-	}
-
-
 }
+
+
+
 
 	
 

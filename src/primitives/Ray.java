@@ -1,5 +1,11 @@
 package primitives;
 
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
+
 public class Ray {
 	private Point3D _p0;
 	private Vector _direction;

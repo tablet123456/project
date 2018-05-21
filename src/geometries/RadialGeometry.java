@@ -1,5 +1,10 @@
 package geometries;
 
+/**
+ * 
+ * @author tzvibloom
+ *
+ */
 
 public abstract class RadialGeometry extends Geometry {
 	private double _radius;
