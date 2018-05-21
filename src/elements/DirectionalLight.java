@@ -1,12 +1,14 @@
 package elements;
 
 import primitives.Color;
+import primitives.Vector;
 
 public class DirectionalLight extends Light {
 
 	public DirectionalLight() {
-		// TODO Auto-generated constructor stub
+	
 	}
+	Vector _direction;
 
 	@Override
 	public Color getIntensity() {

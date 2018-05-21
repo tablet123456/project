@@ -24,7 +24,7 @@ public class Scene {
 			_camera =  new Camera(new Point3D(0.0 ,0.0 ,0.0), new Vector (0.0, 1.0, 0.0), new Vector (0.0, 0.0, -1.0));
 			_screenDistance = 1;
 			_geometries = new Geometries();
-			_lights= new LightSource();
+			set_lights(new LightSource());
 		}
 	
  
@@ -53,6 +53,16 @@ public class Scene {
 		return _screenDistance;
 	}
 	
+	public LightSource get_lights() {
+		return _lights;
+	}
+
+
+	public void set_lights(LightSource _lights) {
+		this._lights = _lights;
+	}
+
+
 	public void set_sceneName(String _sceneName) {
 		this._sceneName = _sceneName;
 	}

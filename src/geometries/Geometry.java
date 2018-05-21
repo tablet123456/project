@@ -9,7 +9,7 @@ import primitives.Vector;
 		
 		protected Color  _emmission;
 		
-		protected Material _material;
+		public Material _material;
 		/********** Constructors ***********/
 		
 		// Default constructor

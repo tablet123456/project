@@ -1,17 +1,15 @@
 package elements;
+import primitives.*;
 
-import primitives.Color;
 
 public class pointLight extends Light {
+	protected  Point3D _position;
 	
-	protected double _Kc;
+	protected double _Kc=1;
 	protected double _kl;
 	protected double _Kq;
 	
-	public double get_Kc() {
-		return _Kc;
-	}
-
+	
 	public double get_kl() {
 		return _kl;
 	}
@@ -20,9 +18,15 @@ public class pointLight extends Light {
 			return _Kq;
 	}
 
-
 	public  Color getIntensity() {
 		return null;
 	}	
+	
+	public Point3D get_position() {
+		return _position;
+	}
+
+	
+	
 
 }

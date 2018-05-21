@@ -7,7 +7,6 @@ public abstract class Light {
 	
 	
 	
-	
 	public Color get_color() {
 		return _color;
 	}
