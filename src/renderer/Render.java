@@ -39,7 +39,7 @@ public class Render {
 		for (int i = 0; i < _imageWriter.getNx() - 1; i++) {
 			for (int j = 0; j < _imageWriter.getNy() - 1; j++) {
 				if (((i + 1) % grid == 0) || (((j + 1) % grid) == 0))
-					_imageWriter.writePixel(i, j, 255, 255, 255);
+					_imageWriter.writePixel(i, j, 128, 128, 128);
 			}
 		}
 		_imageWriter.writeToimage();
@@ -79,7 +79,7 @@ public class Render {
 		Color color = new Color(_scene.get_ambientLight().getIntensity());
 		color = color.add(geometry.get_emmission());
 		
-		Vector n =geometry.getNormal(point);
+		/**Vector n =geometry.getNormal(point);
 		int nShininess=geometry._material.getnShininess();
 		 double kd = geometry._material.get_Kd();
 		 double ks = geometry._material.get_Ks();
@@ -90,8 +90,8 @@ public class Render {
 		 Vector l = lightSource.getL(point);
 		 Vector v = point.vectorsubtract(_scene.get_camera().get_p0());
 		 color.add(calcDiffusive(kd, l, n, lightIntensity),
-		 calcSpecular(ks, l, n, v, nShininess, lightIntensity));
-		}
+		 calcSpecular(ks, l, n, v, nShininess, lightIntensity));**/
+	//	}
 		 
 		 
 		 
