@@ -1,6 +1,10 @@
 package scene;
 import geometries.*;
 import primitives.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import elements.*;
 /**
  * present a scene by having name, camera, color for the background, an ambientLight,
@@ -13,7 +17,7 @@ public class Scene {
   private Color _background;
   private AmbientLight _ambientLight;
   private Geometries _geometries;
-  private LightSource _lights;
+  List<LightSource> _lights = new ArrayList<LightSource>();
   private Camera _camera;
   private double _screenDistance;
   
@@ -24,7 +28,7 @@ public class Scene {
 			_camera =  new Camera(new Point3D(0.0 ,0.0 ,0.0), new Vector (0.0, 1.0, 0.0), new Vector (0.0, 0.0, -1.0));
 			_screenDistance = 1;
 			_geometries = new Geometries();
-			set_lights(new LightSource());
+			;
 		}
 	
  
@@ -45,6 +49,11 @@ public class Scene {
 		return _geometries;
 	}
 
+	public List<LightSource> get_lights() {
+		return _lights;
+	}
+
+
 	public Camera get_camera() {
 		return _camera;
 	}
@@ -53,16 +62,6 @@ public class Scene {
 		return _screenDistance;
 	}
 	
-	public LightSource get_lights() {
-		return _lights;
-	}
-
-
-	public void set_lights(LightSource _lights) {
-		this._lights = _lights;
-	}
-
-
 	public void set_sceneName(String _sceneName) {
 		this._sceneName = _sceneName;
 	}

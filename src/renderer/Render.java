@@ -83,13 +83,16 @@ public class Render {
 		int nShininess=geometry._material.getnShininess();
 		 double kd = geometry._material.get_Kd();
 		 double ks = geometry._material.get_Ks();
+		 
 		
-		 for (LightSource lightSource : _scene.get_lights()) {
+		for (LightSource lightSource : _scene.get_lights()) {
 		 Color lightIntensity = lightSource.getIntesity(point);
 		 Vector l = lightSource.getL(point);
 		 Vector v = point.vectorsubtract(_scene.get_camera().get_p0());
 		 color.add(calcDiffusive(kd, l, n, lightIntensity),
 		 calcSpecular(ks, l, n, v, nShininess, lightIntensity));
+		}
+		 
 		 
 		 
 		return color;

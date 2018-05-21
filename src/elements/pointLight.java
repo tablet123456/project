@@ -26,7 +26,13 @@ public class pointLight extends Light {
 		return _position;
 	}
 
+	public Vector getD(Point3D point) {
+		return getL(point);
+	}
 	
-	
+	public Vector getL(Point3D point) {
+		Vector L = new Vector (point.vectorsubtract(_position)).normalize();
+		return L;
+	}
 
 }
