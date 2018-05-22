@@ -37,9 +37,9 @@ public class RenderTest {
 		ImageWriter imageWriter = new ImageWriter("test0", 500, 500, 500, 500);
 		Render render = new Render(imageWriter, scene);
 		
-		/*render.renderImage();
+		render.renderImage();
 		render.printGrid(50);
-		render.writeToimage();*/
+		render.writeToimage();
 	}
 
 	@Test
@@ -53,7 +53,7 @@ public class RenderTest {
 		scene.set_ambientLight(new AmbientLight(new Color (255,255,255),0.3));
 		scene.get_lights().add(new DirectionalLight(new Vector(10,1,1),new Color(0,0,255)));
 		
-		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150),new Color(0,0,0),new Material (0.03,1,1)));
+		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150),new Color(0,0,0),new Material (3,1,1)));
 		
 		ImageWriter imageWriter = new ImageWriter("direction", 500, 500, 500, 500);
 		Render render = new Render(imageWriter, scene);

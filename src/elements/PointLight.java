@@ -16,7 +16,7 @@ import primitives.*;
 public class PointLight extends Light implements LightSource {
 	protected Point3D _position;
 
-	protected double _Kc = 1;
+	protected double _Kc;
 	protected double _Kl;
 	protected double _Kq;
 
