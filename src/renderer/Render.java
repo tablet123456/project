@@ -52,7 +52,7 @@ public class Render {
 		for (int i = 0; i < _imageWriter.getNx() - 1; i++) {
 			for (int j = 0; j < _imageWriter.getNy() - 1; j++) {
 				if (((i + 1) % grid == 0) || (((j + 1) % grid) == 0))
-					_imageWriter.writePixel(i, j, 128, 128, 128);
+					_imageWriter.writePixel(i, j, 255, 255, 255);
 			}
 		}
 		_imageWriter.writeToimage();
@@ -112,7 +112,7 @@ public class Render {
 	}
 
 	private Color calcSpecular(double ks, Vector l, Vector n, Vector v, int nShininess, Color lightIntensity) {
-		Vector r = l.add(n.scale(2*(l.dotProduct(n))));
+		Vector r = l.add(n.scale(2*(l.dotProduct(n))).normalize());
 		Color specular=new Color((lightIntensity.scale(ks*Math.pow(Math.abs(r.dotProduct(v)), nShininess))));
 		return specular;
 	}
