@@ -1,4 +1,5 @@
 package scene;
+
 import geometries.*;
 import primitives.*;
 
@@ -24,7 +25,7 @@ public class Scene {
   private Color _background;
   private AmbientLight _ambientLight;
   private Geometries _geometries;
-  List<LightSource> _lights = new ArrayList<LightSource>();
+  List<LightSource> _lights;
   private Camera _camera;
   private double _screenDistance;
   
@@ -35,7 +36,7 @@ public class Scene {
 			_camera =  new Camera(new Point3D(0.0 ,0.0 ,0.0), new Vector (0.0, 1.0, 0.0), new Vector (0.0, 0.0, -1.0));
 			_screenDistance = 1;
 			_geometries = new Geometries();
-			;
+			_lights = new ArrayList<>();
 		}
 	
  
@@ -55,7 +56,7 @@ public class Scene {
 	public Geometries get_geometries() {
 		return _geometries;
 	}
-
+	
 	public List<LightSource> get_lights() {
 		return _lights;
 	}
@@ -81,12 +82,15 @@ public class Scene {
 		this._ambientLight = _ambientLight;
 	}
 	
+	public void set_lights(List<LightSource> _lights) {
+		this._lights = _lights;
+	}
+
+
 	public void set_geometries(Geometries geometries) {
 		this._geometries = geometries;
 	}
 	
-	
-
 	public void set_camera(Camera _camera) {
 		this._camera = _camera;
 	}

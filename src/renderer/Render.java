@@ -90,7 +90,7 @@ public class Render {
 
 	private Color calcColor(Geometry geometry, Point3D point) {
 		Color color = new Color(_scene.get_ambientLight().getIntensity());
-		color = color.add(geometry.get_emmission());
+		color = color.add(geometry.get_emission());
 		
 		Vector v = point.vectorsubtract(_scene.get_camera().get_p0());
 		Vector n =geometry.getNormal(point);
@@ -107,6 +107,7 @@ public class Render {
 			}
 		
 		}
+
 		return color;
 	}
 
@@ -119,14 +120,13 @@ public class Render {
 	private Color calcDiffusive(double kd, Vector l, Vector n, Color lightIntensity) {
 		Color diffusive= new Color(lightIntensity.scale(kd*Math.abs(l.dotProduct(n))));
 		return diffusive;
-		
 	}
 
 	private Map<Geometry, Point3D> getClosestPoint(Map<Geometry, List<Point3D>> intersectionsPoints) {
 		double distance = Double.MAX_VALUE;
 		Map<Geometry, Point3D> closestPoint = new HashMap<Geometry, Point3D>();
 		Point3D p0 = _scene.get_camera().get_p0();
-		Point3D minDistancePoint = null;
+		Point3D minDistancePoint = new Point3D(p0);
 		if (closestPoint != null) {
 			for (Entry<Geometry, List<Point3D>> intersect : intersectionsPoints.entrySet()) {
 				Geometry geo = intersect.getKey();
@@ -141,7 +141,6 @@ public class Render {
 				}
 			}
 		}
-
 		return closestPoint;
 	}
 

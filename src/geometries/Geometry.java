@@ -19,7 +19,7 @@ public abstract class Geometry {
 	
 	Map<Geometry, List<Point3D>> findintersection = new HashMap<Geometry, List<Point3D>>();
 		
-	protected Color  _emmission;
+	protected Color  _emission;
 		
 	public Material _material;
 	/******************* Constructors ************************/
@@ -33,8 +33,8 @@ public abstract class Geometry {
 		
 	}
 	/***************** Getters/Setters **********************/
-	public Color get_emmission() {
-		return _emmission;
+	public Color get_emission() {
+		return _emission;
 	}
 	
 	public Material get_material() {

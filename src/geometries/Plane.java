@@ -16,32 +16,34 @@ public class Plane extends Geometry {
 	private Point3D _p;
 	private Vector _normal;
 	/***************** Constructors **********************/ 
-	public Plane(Point3D point, Vector normal,Color emmission) {
+	public Plane(Point3D point, Vector normal,Color emission,Material material) {
 		_p = new Point3D(point);
 		_normal= new Vector(normal).normalize();
-		_emmission= new Color(emmission);
+		_emission= new Color(emission);
+		_material = new Material(material);
 	}
 	public Plane(Plane plane ) {
 		super(plane);
 		_p = new Point3D(plane._p);
 		_normal = new Vector(plane._normal);
-		_emmission= new Color (plane._emmission);
+		_emission= new Color (plane._emission);
+		_material = new Material(plane._material);
 	}
-	public Plane(Point3D p1, Point3D p2, Point3D p3 , Color emmission) {
+	public Plane(Point3D p1, Point3D p2, Point3D p3 , Color emission , Material material) {
 		Vector u = new Vector(p2.vectorsubtract(p1).normalize());
 		Vector v = new Vector(p3.vectorsubtract(p1).normalize());
 		Vector w =new Vector( u._crossproduct(v));
 		_p = new Point3D(p1);
-		_normal =new Vector( w.normalize());
-		_emmission= new Color (emmission);
+		_normal = new Vector( w.normalize());
+		_emission = new Color(emission);
+		_material = new Material(material);
 	}
+	
 	/***************** Getters/Setters **********************/
 	
 	public Point3D get_p() {
 		return _p;
 	}
-
-	
 	
 	/***************** Administration  ********************/
 

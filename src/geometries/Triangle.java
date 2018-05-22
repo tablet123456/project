@@ -5,10 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import primitives.Color;
-import primitives.Point3D;
-import primitives.Ray;
-import primitives.Vector;
+import primitives.*;
+
 
 /**
  * 
@@ -28,12 +26,13 @@ public class Triangle extends Plane {
 	private Point3D _p3;
 
 	/***************** Constructors **********************/
-	public Triangle(Point3D point1, Point3D point2, Point3D point3,Color emmission) {
-		super(point1, point2, point3,emmission);
+	public Triangle(Point3D point1, Point3D point2, Point3D point3,Color emission,Material material) {
+		super(point1, point2, point3,emission,material);
 		_p1 = new Point3D(point1);
 		_p2 = new Point3D(point2);
 		_p3 = new Point3D(point3);
-		_emmission = new Color(emmission);
+		_emission = new Color(emission);
+		_material = new Material(material);
 	}
 
 	public Triangle(Triangle triangle) {
@@ -41,7 +40,8 @@ public class Triangle extends Plane {
 		_p1 = new Point3D(triangle._p1);
 		_p2 = new Point3D( triangle._p2);
 		_p3 = new Point3D( triangle._p3);
-		_emmission= new Color (triangle._emmission);
+		_emission = new Color (triangle._emission);
+		_material = new Material(triangle._material);
 	}
 
 	/***************** Getters/Setters **********************/

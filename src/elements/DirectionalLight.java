@@ -11,7 +11,7 @@ import primitives.*;
 /****************** Administration  **********************/
 /******************* Operations **************************/
 /********************* Helpers ***************************/
-public class DirectionalLight extends Light {
+public class DirectionalLight extends Light implements LightSource{
 	
 	Vector _direction;
 	
@@ -29,7 +29,8 @@ public class DirectionalLight extends Light {
 		return _direction.normalize();
 	}
 	
-	public Color getIntensity() {
+	@Override
+	public Color getIntesity(Point3D point) {
 		return getIntensity();
 	}
 }

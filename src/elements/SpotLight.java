@@ -37,7 +37,8 @@ public class SpotLight extends PointLight {
 		Vector dir = new Vector(_direction).normalize();
 		return dir;
 	}
-	public  Color getIntensity(Point3D point) {
+	@Override
+	public Color getIntesity(Point3D point) {
 		double numerator = _direction.dotProduct(getL(point));
 		double distance = _position.distance(point);
 		double denominator = (_Kc < 1 ? _Kc = 1 : _Kc) + _Kl * distance + _Kq * distance * distance;

@@ -13,9 +13,10 @@ public class Cylinder extends RadialGeometry {
 	private Ray _axisRay;
 	/***************** Constructors **********************/ 
 	
-	public Cylinder(double _radius, Ray axis) {
+	public Cylinder(double _radius, Ray axis,Color emission, Material material) {
 		super(_radius);
-		this._axisRay = new Ray(axis);
+		_axisRay = new Ray(axis);
+		_emission = new Color(emission);
 	}
 	
 	/***************** Getters/Setters **********************/

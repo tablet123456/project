@@ -18,6 +18,18 @@ public class Material {
 	double _Ks;
 	int nShininess;
 	
+	public Material(double kd,double ks,int nshininess) {
+		_Kd = kd;
+		_Ks = ks;
+		nShininess =nshininess;
+	}
+	
+	public Material(Material material) {
+		_Kd=material._Kd;
+		_Ks=material._Ks;
+		nShininess = material.nShininess;
+	}
+	
 	public double get_Kd() {
 		return _Kd;
 	}

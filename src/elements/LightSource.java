@@ -8,13 +8,13 @@ import primitives.*;
  *
  */
 
-public abstract class LightSource {
+public interface LightSource {
 	
-	public abstract Color getIntesity(Point3D point);
+	 Color getIntesity(Point3D point);
 	
-	public abstract Vector getD(Point3D point);
+	 Vector getD(Point3D point);
 	
-	public abstract Vector getL(Point3D point);
+	 Vector getL(Point3D point);
 		
 }
 
