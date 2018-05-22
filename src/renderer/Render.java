@@ -92,7 +92,7 @@ public class Render {
 		Color color = new Color(_scene.get_ambientLight().getIntensity());
 		color = color.add(geometry.get_emission());
 		
-		Vector v = point.vectorsubtract(_scene.get_camera().get_p0());
+		Vector v = point.vectorsubtract(_scene.get_camera().get_p0()).normalize();
 		Vector n =geometry.getNormal(point);
 		int nShininess=geometry._material.getnShininess();
 		 double kd = geometry._material.get_Kd();

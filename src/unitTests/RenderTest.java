@@ -38,7 +38,7 @@ public class RenderTest {
 		Render render = new Render(imageWriter, scene);
 		
 		render.renderImage();
-		render.printGrid(50);
+		//render.printGrid(50);
 		render.writeToimage();
 	}
 
@@ -51,15 +51,15 @@ public class RenderTest {
 		Geometries geometries = new Geometries();
 		scene.set_geometries(geometries);
 		scene.set_ambientLight(new AmbientLight(new Color (255,255,255),0.3));
-		scene.get_lights().add(new DirectionalLight(new Vector(10,1,1),new Color(0,0,255)));
+		scene.get_lights().add(new DirectionalLight(new Vector(10,3,0),new Color(0,0,255)));
 		
-		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150),new Color(0,0,0),new Material (3,1,1)));
+		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150),new Color(0,0,0),new Material (1,1,1)));
 		
 		ImageWriter imageWriter = new ImageWriter("direction", 500, 500, 500, 500);
 		Render render = new Render(imageWriter, scene);
 		
 		render.renderImage();
-		render.printGrid(50);
+		//render.printGrid(50);
 		render.writeToimage();
 	}
 	
@@ -74,13 +74,13 @@ public class RenderTest {
 		scene.set_ambientLight(new AmbientLight(new Color (255,255,255),0.3));
 		scene.get_lights().add(new PointLight(new Point3D(0,0,50) ,1,0,0.1,new Color(0,255,0)));
 		
-		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150),new Color(0,0,0),new Material(3,1,1)));
+		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150),new Color(0,0,0),new Material(20,2,1)));
 		
 		ImageWriter imageWriter = new ImageWriter("point", 500, 500, 500, 500);
 		Render render = new Render(imageWriter, scene);
 		
 		render.renderImage();
-		render.printGrid(50);
+		//render.printGrid(50);
 		render.writeToimage();
 	}
 	
@@ -95,13 +95,13 @@ public class RenderTest {
 		scene.set_ambientLight(new AmbientLight(new Color (255,255,255),0.3));
 		scene.get_lights().add(new SpotLight(new Point3D(0,0,0),1,0,1,new Color(255,0,0),new Vector(0,0,50)));
 		
-		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150),new Color(0,0,0),new Material(1,1,1)));
+		geometries.addGeometry(new Sphere(50, new Point3D(0, 0, 150),new Color(0,0,0),new Material(20,1,4)));
 	
 		ImageWriter imageWriter = new ImageWriter("spot", 500, 500, 500, 500);
 		Render render = new Render(imageWriter, scene);
 	
 		render.renderImage();
-		render.printGrid(50);
+		//render.printGrid(50);
 		render.writeToimage();
 	}
 
