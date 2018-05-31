@@ -1,12 +1,9 @@
 package geometries;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import primitives.*;
-
 
 /**
  * 
@@ -26,22 +23,11 @@ public class Triangle extends Plane {
 	private Point3D _p3;
 
 	/***************** Constructors **********************/
-	public Triangle(Point3D point1, Point3D point2, Point3D point3,Color emission,Material material) {
-		super(point1, point2, point3,emission,material);
+	public Triangle(Point3D point1, Point3D point2, Point3D point3, Color emission, Material material) {
+		super(point1, point2, point3, emission, material);
 		_p1 = new Point3D(point1);
 		_p2 = new Point3D(point2);
 		_p3 = new Point3D(point3);
-		_emission = new Color(emission);
-		_material = new Material(material);
-	}
-
-	public Triangle(Triangle triangle) {
-		super(triangle);
-		_p1 = new Point3D(triangle._p1);
-		_p2 = new Point3D( triangle._p2);
-		_p3 = new Point3D( triangle._p3);
-		_emission = new Color (triangle._emission);
-		_material = new Material(triangle._material);
 	}
 
 	/***************** Getters/Setters **********************/
@@ -94,41 +80,25 @@ public class Triangle extends Plane {
 	/***************** Operations ********************/
 	@Override
 	public Map<Geometry, List<Point3D>> findintersection(Ray ray) {
-		findintersection = new HashMap<Geometry, List<Point3D>>();
-		List<Point3D> intersection = new ArrayList<Point3D>();
-		Point3D p0=ray.get_p0();
-		findintersection = super.findintersection(ray);
-		if (findintersection.isEmpty()) {
+		Map<Geometry, List<Point3D>> findintersection = super.findintersection(ray);
+		List<Point3D> intersection = findintersection.entrySet().iterator().next().getValue();
+		Point3D p0 = ray.get_p0();
+		if (findintersection.isEmpty() || intersection == null || intersection.isEmpty())
 			return findintersection;
-		} 
-		else {
-			findintersection.forEach((k,v) ->
-			{k=this;
-				intersection.addAll(v);
-			});
-			Vector v1 = (this._p1.vectorsubtract(p0));
-			Vector v2 = (this._p2.vectorsubtract(p0));
-			Vector v3 = (this._p3.vectorsubtract(p0));
-			Vector N1 = (v1.crossProduct(v2)).normalize();
-			Vector N2 = (v2.crossProduct(v3)).normalize();
-			Vector N3 = (v3.crossProduct(v1)).normalize();
-			Point3D p = new Point3D(findintersection.get(this).get(0));
-			Vector pp0 = new Vector(p.vectorsubtract(p0));
-			double q1 = (pp0._dotproduct(N1));
-			double q2 = (pp0._dotproduct(N2));
-			double q3 = (pp0._dotproduct(N3));
-			if (!((q1 > 0 && q2 > 0 && q3 > 0) || (q1 < 0 && q2 < 0 && q3 < 0))) {
-				intersection.clear();
-				findintersection.put(this, intersection);
-				
-			}
-		}
+		Vector v1 = this._p1.subtract(p0);
+		Vector v2 = this._p2.subtract(p0);
+		Vector v3 = this._p3.subtract(p0);
+		Vector N1 = v1.crossProduct(v2);
+		Vector N2 = v2.crossProduct(v3);
+		Vector N3 = v3.crossProduct(v1);
+		Point3D p = intersection.get(0);
+		Vector pp0 = new Vector(p.subtract(p0));
+		double q1 = pp0._dotproduct(N1);
+		double q2 = pp0._dotproduct(N2);
+		double q3 = pp0._dotproduct(N3);
+		if (!((q1 > 0 && q2 > 0 && q3 > 0) || (q1 < 0 && q2 < 0 && q3 < 0)))
+			intersection.clear();
 		return findintersection;
-	}
-
-	@Override
-	public Vector getNormal(Point3D point) {
-		return super.getNormal(point);
 	}
 
 }

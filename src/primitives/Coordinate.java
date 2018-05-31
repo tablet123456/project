@@ -1,8 +1,14 @@
 package primitives;
 
+/**
+ * sdf jaskdfjhdskj hsdfkj hdsf
+ * @author tzvibloom
+ *
+ */
 public class Coordinate {
 	//private static final double EPSILON = 0.0000001;
 	private double _coordinate;
+	public static final Coordinate ZERO = new Coordinate(0.0);
 
 	/********** Constructors ***********/
 	public Coordinate(double coord) {
@@ -24,6 +30,14 @@ public class Coordinate {
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
 		if (obj == null) return false;
+		
+		// With the following trick we will be able
+		// to test a number for being almost 0 or 0 as
+		// follows:
+		// if (Coordinate.ZERO.equals(number) ...
+		if (obj instanceof Double)
+			return subtract((double)obj) == 0.0;
+			
 		if (!(obj instanceof Coordinate)) return false;
 		
 		Coordinate other = (Coordinate) obj;

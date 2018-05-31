@@ -7,7 +7,6 @@ import java.util.Map;
 
 import primitives.Point3D;
 import primitives.Ray;
-import primitives.Vector;
 
 /**
  * 
@@ -20,41 +19,31 @@ import primitives.Vector;
 /******************* Operations **************************/
 /********************* Helpers ***************************/
 
-public class Geometries extends Geometry {
-	
-	private List<Geometry> geometries = new ArrayList<Geometry>();
-	
-	public void addGeometry(Geometry geometry) {
+public class Geometries implements Intersectable {
+
+	private List<Intersectable> geometries = new ArrayList<Intersectable>();
+
+	public void addGeometry(Intersectable geometry) {
 		geometries.add(geometry);
 	}
-	
-	public void removeGeometry(Geometry geometry) {
+
+	public void removeGeometry(Intersectable geometry) {
 		geometries.remove(geometry);
 	}
-	
 
 	@Override
-	public Vector getNormal(Point3D point) {
-		return null;
-	}
-
-	@Override
-	public Map<Geometry, List<Point3D>> findintersection(Ray ray)  {
+	public Map<Geometry, List<Point3D>> findintersection(Ray ray) {
 		Map<Geometry, List<Point3D>> findintersection = new HashMap<Geometry, List<Point3D>>();
-			List<Point3D> intersection = new ArrayList<Point3D>();
-			List<Point3D> intersections = new ArrayList<Point3D>();
-			Map<Geometry, List<Point3D>> map = new HashMap<Geometry, List<Point3D>>();
-			for (Geometry geometry : geometries) {
-				map = geometry.findintersection(ray);
-				intersections = map.get(geometry);
-				if (intersections != null) {
-					if (!intersections.isEmpty()){
-						intersection.addAll(intersections);
-						findintersection.put(geometry, intersections);
-						}
-					}
+		for (Intersectable geometry : geometries) {
+			Map<Geometry, List<Point3D>> map = geometry.findintersection(ray);
+			List<Point3D> intersections = map.get(geometry);
+			if (intersections != null) {
+				if (!intersections.isEmpty()) {
+					findintersection.putAll(map);
 				}
-			return findintersection;
-			}	
-	
+			}
+		}
+		return findintersection;
 	}
+
+}

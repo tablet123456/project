@@ -24,11 +24,11 @@ public class Main {
 		Vector vector1 = new Vector(point4);
 		Vector vector2 = new Vector (coord,coord1,coord2);
 		
-		Ray ray = new Ray(1,2,3,2,3,1);
-		Ray ray1 = new Ray(2, 4, 1, vector1);
-		Ray ray2 = new Ray(point4, 2, 5, 6);
+		//Ray ray = new Ray(1,2,3,2,3,1);
+		//Ray ray1 = new Ray(2, 4, 1, vector1);
+		//Ray ray2 = new Ray(point4, 2, 5, 6);
 		
-		Cylinder cylinder = new Cylinder(3, ray,c,m);
+		//Cylinder cylinder = new Cylinder(3, ray,c,m);
 		
 		Plane plane = new Plane(point3, vector,c,m);
 		
@@ -45,7 +45,7 @@ public class Main {
 				
 				// Checking Point3Ds class
 				
-				System.out.println(point3.vectorsubtract(point5));
+				System.out.println(point3.subtract(point5));
 				System.out.println(point4.add(vector));
 				System.out.println(point3.distance(point5));
 				
@@ -72,7 +72,7 @@ public class Main {
 				
 				// Checking Cylinders class
 				
-				System.out.println(cylinder.getNormal(point3));
+				//System.out.println(cylinder.getNormal(point3));
 			}
 	}
 

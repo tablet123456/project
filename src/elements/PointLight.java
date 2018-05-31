@@ -7,11 +7,7 @@ import primitives.*;
  * @author tzvibloom
  *
  */
-/****************** Constructors *************************/
-/****************** Getters/Setters **********************/
-/****************** Administration  **********************/
-/******************* Operations **************************/
-/********************* Helpers ***************************/
+
 
 public class PointLight extends Light implements LightSource {
 	protected Point3D _position;
@@ -20,6 +16,8 @@ public class PointLight extends Light implements LightSource {
 	protected double _Kl;
 	protected double _Kq;
 
+	/****************** Constructors *************************/
+	
 	public PointLight(Point3D position, double kc, double kl, double kq, Color color) {
 		super(color);
 		_position = new Point3D(position);
@@ -28,6 +26,8 @@ public class PointLight extends Light implements LightSource {
 		_Kq = kq;
 	}
 
+	/****************** Getters/Setters **********************/
+	
 	public double get_kl() {
 		return _Kl;
 	}
@@ -35,7 +35,9 @@ public class PointLight extends Light implements LightSource {
 	public double get_Kq() {
 		return _Kq;
 	}
-
+	/****************** Administration  **********************/
+	/******************* Operations **************************/
+	
 	public Point3D get_position() {
 		return _position;
 	}
@@ -45,7 +47,7 @@ public class PointLight extends Light implements LightSource {
 	}
 
 	public Vector getL(Point3D point) {
-		Vector L = new Vector(point.vectorsubtract(_position)).normalize();
+		Vector L = new Vector(point.subtract(_position)).normalize();
 		return L;
 	}
 
@@ -55,5 +57,6 @@ public class PointLight extends Light implements LightSource {
 		double denominator = (_Kc < 1 ? _Kc = 1 : _Kc) + _Kl * distance + _Kq * distance * distance;
 		return new Color(getIntensity().reduce(denominator));
 	}
+	/********************* Helpers ***************************/
 
 }

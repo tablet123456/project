@@ -92,7 +92,7 @@ public class Render {
 		Color color = new Color(_scene.get_ambientLight().getIntensity());
 		color = color.add(geometry.get_emission());
 		
-		Vector v = point.vectorsubtract(_scene.get_camera().get_p0()).normalize();
+		Vector v = point.subtract(_scene.get_camera().get_p0()).normalize();
 		Vector n =geometry.getNormal(point);
 		int nShininess=geometry._material.getnShininess();
 		 double kd = geometry._material.get_Kd();
@@ -101,24 +101,41 @@ public class Render {
 		for (LightSource lightSource : _scene.get_lights()) {
 			 Vector l = lightSource.getL(point);
 			if (n.dotProduct(l)*n.dotProduct(v) > 0) {
+				if (!occluded(l, point, geometry)) {
 				Color lightIntensity = lightSource.getIntesity(point);
 				color.add(calcDiffusive(kd, l, n, lightIntensity),
 				calcSpecular(ks, l, n, v, nShininess, lightIntensity));
 			}
+		}	
 		
 		}
 
 		return color;
 	}
+	
+	private boolean occluded(Vector l, Point3D point, Geometry geometry) {
+		Vector lightDirection = l.scale(-1); // from point to light source
+		Vector normal = geometry.getNormal(point);
+		Vector epsVector = normal.scale((normal.dotProduct(lightDirection) > 0) ? 2 : -2);
+		Point3D geometryPoint = point.add(epsVector);
+		Ray lightRay = new Ray(geometryPoint, lightDirection);
+		Map<Geometry, List<Point3D>> intersectionPoints =_scene.get_geometries().findintersection(lightRay);
+		return !intersectionPoints.isEmpty();
+	}
 
 	private Color calcSpecular(double ks, Vector l, Vector n, Vector v, int nShininess, Color lightIntensity) {
-		Vector r = l.add(n.scale(2*(l.dotProduct(n))).normalize());
+		Vector r = l.add(n.scale(-2*(l.dotProduct(n))).normalize());
+		if(v.dotProduct(r)>0) {
+			return new Color(0,0,0);
+		}
+		else {
 		Color specular=new Color((lightIntensity.scale(ks*Math.pow(Math.abs(r.dotProduct(v)), nShininess))));
 		return specular;
+		}
 	}
 	
 	private Color calcDiffusive(double kd, Vector l, Vector n, Color lightIntensity) {
-		Color diffusive= new Color(lightIntensity.scale(kd*Math.abs(l.dotProduct(n))));
+		Color diffusive=new Color (lightIntensity.scale(kd*Math.abs(l.dotProduct(n))));
 		return diffusive;
 	}
 

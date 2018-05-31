@@ -6,20 +6,28 @@ import primitives.*;
  * @author tzvibloom
  *
  */
-/****************** Constructors *************************/
-/****************** Getters/Setters **********************/
-/****************** Administration  **********************/
-/******************* Operations **************************/
-/********************* Helpers ***************************/
+
 public class DirectionalLight extends Light implements LightSource{
 	
-	Vector _direction;
+	private Vector _direction;
+	/****************** Constructors *************************/
 	
 	public DirectionalLight(Vector direction, Color color) {
 		super(color);
 		_direction =new Vector (direction);
 		
 	}
+	/****************** Getters/Setters **********************/
+	
+	public Vector get_direction() {
+		return _direction;
+	}
+
+	public void set_direction(Vector _direction) {
+		this._direction = _direction;
+	}
+	/****************** Administration  **********************/
+	/******************* Operations **************************/
 	
 	public Vector getL(Point3D point) {
 		return getD(point);
@@ -33,4 +41,4 @@ public class DirectionalLight extends Light implements LightSource{
 	public Color getIntesity(Point3D point) {
 		return getIntensity();
 	}
-}
+}/********************* Helpers ***************************/

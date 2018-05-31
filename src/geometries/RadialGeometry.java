@@ -1,5 +1,8 @@
 package geometries;
 
+import primitives.Color;
+import primitives.Material;
+
 /**
  * 
  * @author tzvibloom
@@ -13,21 +16,17 @@ package geometries;
 /********************* Helpers ***************************/
 
 public abstract class RadialGeometry extends Geometry {
-	private double _radius;
-	public RadialGeometry() {
-
+	protected double _radius;
+	public RadialGeometry(Color em, Material mat) {
+		super(em, mat);
 	}
 	/********** Constructors ***********/
 
-	public RadialGeometry(double radius) {
-		super();
+	public RadialGeometry(double radius, Color em, Material mat) {
+		super(em, mat);
 		this._radius = radius;
 	}
 	
-	// Copy constructor
-	public RadialGeometry(RadialGeometry radial) {
-		this._radius = radial._radius;
-	}
 	/************** Getters/Setters *******/
     public double get_radius() {
     	return _radius;

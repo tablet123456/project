@@ -9,52 +9,35 @@ package primitives;
 public class Ray {
 	private Point3D _p0;
 	private Vector _direction;
-	
-	/***************** Constructors **********************/ 
+
+	/***************** Constructors **********************/
 	public Ray(Point3D point, Vector vector) {
-		_p0=new Point3D(point);
-		_direction=new Vector(vector);
+		_p0 = new Point3D(point);
+		_direction = vector.normalize();
 	}
-	public Ray(Point3D point, Point3D vector) {
-		_p0=new Point3D(point);
-		_direction=new Vector (vector);
-	}
-	public Ray(double x,double y,double z,Vector vector) {
-		_p0=new Point3D(x,y,z);
-		_direction=new Vector(vector);
-	}
-	public Ray(double x,double y,double z,double xv,double yv,double zv) {
-		_p0=new Point3D(x,y,z);
-		_direction=new Vector(xv,yv,zv);
-	}
-	public Ray(double x,double y,double z,Point3D vector) {
-		_p0=new Point3D(x,y,z);
-		_direction=new Vector(vector);
-	}
-	public Ray(Point3D point,double xv,double yv,double zv) {
-		_p0=new Point3D(point);
-		_direction=new Vector(xv,yv,zv);
-	}
+
 	public Ray(Ray ray) {
-		_p0=ray._p0;
-		_direction=ray._direction;
+		_p0 = new Point3D(ray._p0);
+		_direction = new Vector(ray._direction);
 	}
+
 	/***************** Getters/Setters **********************/
-	
+
 	public Point3D get_p0() {
 		return _p0;
 	}
-	
+
 	public Vector get_direction() {
 		return _direction;
 	}
-	/***************** Administration  ********************/
-	
+
+	/***************** Administration ********************/
+
 	@Override
 	public String toString() {
-		return ""+ _p0 + ","+ _direction ;
+		return "" + _p0 + "," + _direction;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -76,8 +59,6 @@ public class Ray {
 			return false;
 		return true;
 	}
-	/***************** Operations ********************/ 
-	
-      
+	/***************** Operations ********************/
 
 }

@@ -42,7 +42,7 @@ public class VectorTests {
 	public void testCrossProduct() {
 		x=new Vector(0.0,5.0,5.0);
 		y=new Vector(1.0,2.0,3.0);
-		assertEquals(new Vector(5.0,5.0,-5.0).getHead(),x._crossproduct(y).getHead());
+		assertEquals(new Vector(5.0,5.0,-5.0).getHead(),x.crossproduct(y).getHead());
 	}
 	@Test
 	public void testLength() {

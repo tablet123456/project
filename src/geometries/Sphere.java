@@ -25,17 +25,10 @@ public class Sphere extends RadialGeometry {
 	/********** Constructors ***********/
 
 	public Sphere(double radius, Point3D center, Color emission, Material material) {
-		super(radius);
+		super(radius, emission, material);
 		_center = new Point3D(center);
 		_emission = new Color(emission);
 		_material = new Material(material);
-	}
-
-	public Sphere(Sphere sphere) {
-		super(sphere);
-		_center = new Point3D(sphere._center);
-		_emission = new Color(sphere._emission);
-		_material = new Material(sphere._material);
 	}
 
 	/************** Getters/Setters *******/
@@ -70,35 +63,48 @@ public class Sphere extends RadialGeometry {
 
 	/***************** Operations ********************/
 
+	@SuppressWarnings("unlikely-arg-type")
 	public Map<Geometry, List<Point3D>> findintersection(Ray ray) {
-		findintersection = new HashMap<Geometry, List<Point3D>>();
+		Map<Geometry, List<Point3D>> findintersection = new HashMap<Geometry, List<Point3D>>();
 		List<Point3D> intersection = new ArrayList<Point3D>();
-
-		Vector u = get_center().vectorsubtract(ray.get_p0());
+		findintersection.put(this, intersection);
+		Point3D p0 = ray.get_p0();
+		
 		Vector v = ray.get_direction();
+		Vector u = null;
+		try {
+			u = _center.subtract(p0);
+		} catch (Exception e) {
+			intersection.add(p0.add(v.scale(_radius)));
+			return findintersection;
+		}
 
-		double tm = (u.dotProduct(v));
+		double tm = u.dotProduct(v);
 		double d = Math.sqrt(u.dotProduct(u) - tm * tm);
 
-		if (!(d > get_radius())) {
+		if (d > _radius)
+			return findintersection;
 
-			double th = Math.sqrt(get_radius() * get_radius() - d * d);
-			double t1 = tm + th;
-
-			if (t1 > 0)
-				intersection.add(new Point3D(ray.get_p0().add(v.scale(t1))));
-
-			double t2 = tm - th;
-			if (t2 > 0)
-				intersection.add(new Point3D(ray.get_p0().add(v.scale(t2))));
+		double th = Math.sqrt(_radius * _radius - d * d);
+		if (Coordinate.ZERO.equals(th)) {
+			intersection.add(p0.add(v.scale(tm)));
+			return findintersection;
 		}
-		findintersection.put(this, intersection);
+
+		double t1 = tm + th;
+		if (t1 > 0)
+			intersection.add(p0.add(v.scale(t1)));
+
+		double t2 = tm - th;
+		if (t2 > 0)
+			intersection.add(p0.add(v.scale(t2)));
+		
 		return findintersection;
 	}
 
 	@Override
 	public Vector getNormal(Point3D point) {
-		return (new Vector(point.vectorsubtract(this.get_center())).normalize());
+		return point.subtract(_center).normalize();
 	}
 
 }

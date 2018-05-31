@@ -1,5 +1,4 @@
 package geometries;
-import java.util.*;
 
 import primitives.*;
 import primitives.Vector;
@@ -15,23 +14,19 @@ import primitives.Vector;
 /******************* Operations **************************/
 /********************* Helpers ***************************/
 
-public abstract class Geometry {
-	
-	Map<Geometry, List<Point3D>> findintersection = new HashMap<Geometry, List<Point3D>>();
-		
+public abstract class Geometry implements Intersectable {
+			
 	protected Color  _emission;
 		
 	public Material _material;
 	/******************* Constructors ************************/
 		
 	// Default constructor
-	public Geometry() {	
-		
+	public Geometry(Color em, Material mat) {	
+		_material = mat;
+		_emission = em;
 	}
-	// Copy constructor
-	public Geometry(Geometry geometry) {
-		
-	}
+
 	/***************** Getters/Setters **********************/
 	public Color get_emission() {
 		return _emission;
@@ -42,10 +37,6 @@ public abstract class Geometry {
 	}
 		
 	public abstract Vector getNormal(Point3D point); 
-		
-	public abstract Map<Geometry,List<Point3D>> findintersection(Ray ray)  ;
-		
-	
-		
+
 }
 

@@ -14,9 +14,8 @@ public class Cylinder extends RadialGeometry {
 	/***************** Constructors **********************/ 
 	
 	public Cylinder(double _radius, Ray axis,Color emission, Material material) {
-		super(_radius);
+		super(_radius, emission, material);
 		_axisRay = new Ray(axis);
-		_emission = new Color(emission);
 	}
 	
 	/***************** Getters/Setters **********************/
@@ -42,10 +41,10 @@ public class Cylinder extends RadialGeometry {
 	}
 	@Override
 	public Vector getNormal(Point3D point) {
-		Vector v =new Vector(point.vectorsubtract(_axisRay.get_p0()));
+		Vector v =new Vector(point.subtract(_axisRay.get_p0()));
 		double t=_axisRay.get_direction()._dotproduct(v);
 		Point3D q= _axisRay.get_p0().add(_axisRay.get_direction().scale(t));
-		Vector normal= new Vector(point.vectorsubtract(q));
+		Vector normal= new Vector(point.subtract(q));
 		return normal.normalize();
 	}
 
