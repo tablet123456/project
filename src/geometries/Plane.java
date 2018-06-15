@@ -46,13 +46,13 @@ public class Plane extends Geometry {
 	}
 
 	/***************** Operations ********************/
-	@SuppressWarnings("unlikely-arg-type")
+	
 	public Map<Geometry, List<Point3D>> findintersection(Ray ray) {
 		Map<Geometry, List<Point3D>> findintersection = new HashMap<Geometry, List<Point3D>>();
 		List<Point3D> intersection = new ArrayList<Point3D>();
 		findintersection.put(this, intersection);
 		double denominator = (_normal.dotProduct(ray.get_direction()));
-		if (Coordinate.ZERO.equals(denominator))
+		if (Coordinate.isZero(denominator))
 			return findintersection;
 		double t = (_normal.dotProduct(_p.subtract(ray.get_p0()))) / denominator;
 		if (t > 0)
@@ -62,7 +62,7 @@ public class Plane extends Geometry {
 
 	@Override
 	public Vector getNormal(Point3D point) {
-		return _normal;
+		return new Vector(_normal);
 	}
 
 }

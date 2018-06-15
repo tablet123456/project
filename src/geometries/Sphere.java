@@ -63,11 +63,10 @@ public class Sphere extends RadialGeometry {
 
 	/***************** Operations ********************/
 
-	@SuppressWarnings("unlikely-arg-type")
+
 	public Map<Geometry, List<Point3D>> findintersection(Ray ray) {
 		Map<Geometry, List<Point3D>> findintersection = new HashMap<Geometry, List<Point3D>>();
 		List<Point3D> intersection = new ArrayList<Point3D>();
-		findintersection.put(this, intersection);
 		Point3D p0 = ray.get_p0();
 		
 		Vector v = ray.get_direction();
@@ -86,7 +85,7 @@ public class Sphere extends RadialGeometry {
 			return findintersection;
 
 		double th = Math.sqrt(_radius * _radius - d * d);
-		if (Coordinate.ZERO.equals(th)) {
+		if (Coordinate.isZero(th)) {
 			intersection.add(p0.add(v.scale(tm)));
 			return findintersection;
 		}
@@ -99,12 +98,16 @@ public class Sphere extends RadialGeometry {
 		if (t2 > 0)
 			intersection.add(p0.add(v.scale(t2)));
 		
+		findintersection.put(this, intersection);
 		return findintersection;
 	}
 
 	@Override
 	public Vector getNormal(Point3D point) {
-		return point.subtract(_center).normalize();
+		Vector p_O = new Vector(point.subtract(get_center()).normalize());  
+		Point3D p1 = new Point3D(point.add(p_O)); 
+		Vector normal = new Vector(p1.subtract(point)); 
+		return new Vector(normal);
 	}
 
 }

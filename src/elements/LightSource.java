@@ -10,7 +10,7 @@ import primitives.*;
 
 public interface LightSource {
 	
-	public Color getIntesity(Point3D point);
+	public Color getIntensity(Point3D point);
 	
 	public Vector getD(Point3D point);
 	

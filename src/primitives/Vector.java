@@ -12,17 +12,17 @@ public class Vector {
 	
 	public Vector(Coordinate x, Coordinate y, Coordinate z) {
 		_head=new Point3D(x,y,z);
-		if (Point3D.ZERO.equals(_head))
-			throw new IllegalArgumentException("Zero vector is not valid");
+//		if (Point3D.ZERO.equals(_head))
+//			throw new IllegalArgumentException("Zero vector is not valid");
 	}
 	public Vector(double x,double y,double z) {
 		_head=new Point3D(x,y,z);
-		if (Point3D.ZERO.equals(_head))
-			throw new IllegalArgumentException("Zero vector is not valid");
+//		if (Point3D.ZERO.equals(_head))
+//			throw new IllegalArgumentException("Zero vector is not valid");
 	}
 	public Vector(Point3D other) {
-		if (Point3D.ZERO.equals(other))
-			throw new IllegalArgumentException("Zero vector is not valid");
+//		if (Point3D.ZERO.equals(other))
+//			throw new IllegalArgumentException("Zero vector is not valid");
 		_head = new Point3D(other);
 	}
 	public Vector(Vector other) {

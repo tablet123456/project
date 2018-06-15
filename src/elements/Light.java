@@ -15,13 +15,16 @@ public abstract class Light {
 	/****************** Constructors *************************/
 	
 	public Light(Color color) {
-		_color=new Color(color);
+		_color= color;
 	}
 	
 	/****************** Getters/Setters **********************/
 
 	public Color get_color() {
 		return _color;
+	}
+	public void set_color(Color color) {
+		_color = color;
 	}
 
 	/****************** Administration  **********************/

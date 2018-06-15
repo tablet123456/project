@@ -81,4 +81,12 @@ public class Point3D extends Point2D {
 		return w;
 	}
 
+	public double distanceSqrt(Point3D point) {
+		double x = Math.pow(this.getX().subtract(point.getX()).get(), 2);
+		double y = Math.pow(this.getY().subtract(point.getY()).get(), 2);
+		double z = Math.pow(this.getZ().subtract(point.getZ()).get(), 2);
+		double w = x+y+z;
+		return w;
+	}
+
 }

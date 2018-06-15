@@ -103,8 +103,8 @@ public class Color {
 	// scale color in exponent
 	public Color scale(double exp) {
 		double r,b,g;
-		if (exp < 0 || exp > 1)
-			throw new ArithmeticException("Scaling color with a value smaller then 0");
+		if (exp < 0)
+			throw new ArithmeticException("Scaling color with a value smaller than 0");
 		r = _red * exp;
 		g = _green * exp;
 		b = _blue * exp;
@@ -113,7 +113,7 @@ public class Color {
 
 	// reduce color with exponent
 	public Color reduce(double exp) {
-		if (exp < 1)
+		if (exp <= 0)
 			throw new ArithmeticException("Reducing color with a value smaller than 0");
 		return scale(1/exp);
 	}

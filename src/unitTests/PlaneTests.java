@@ -21,11 +21,11 @@ class PlaneTests {
 
 		// plane orthogonal to the view plane
 
-		Plane plane = new Plane(new Point3D(0.0, 0.0, -3.0), new Vector(0.0, 0.0, -1.0),new Color(255,128,0),new Material(1,1,1));
+		Plane plane = new Plane(new Point3D(0.0, 0.0, -3.0), new Vector(0.0, 0.0, -1.0),new Color(255,128,0),new Material(1,1,1,1,1,1));
 
 		// 45 degrees to the view plane
 
-		Plane plane2 = new Plane(new Point3D(0.0, 0.0, -3.0), new Vector(0.0, 0.25, -1.0),new Color(255,128,0),new Material(1,1,1));
+		Plane plane2 = new Plane(new Point3D(0.0, 0.0, -3.0), new Vector(0.0, 0.25, -1.0),new Color(255,128,0),new Material(1,1,1,1,1,1));
 
 		List<Point3D> intersectionPointsPlane = new ArrayList<Point3D>();
 		List<Point3D> intersectionPointsPlane2 = new ArrayList<Point3D>();

@@ -14,12 +14,6 @@ import elements.*;
  * 
  */
 
-/****************** Constructors *************************/
-/****************** Getters/Setters **********************/
-/****************** Administration  **********************/
-/******************* Operations **************************/
-/********************* Helpers ***************************/
-
 public class Scene {
   String _sceneName;
   private Color _background;
@@ -36,7 +30,8 @@ public class Scene {
 			_camera =  new Camera(new Point3D(0.0 ,0.0 ,0.0), new Vector (0.0, 1.0, 0.0), new Vector (0.0, 0.0, -1.0));
 			_screenDistance = 1;
 			_geometries = new Geometries();
-			_lights = new ArrayList<>();
+			_lights = new ArrayList<LightSource>();
+			_ambientLight = new AmbientLight(new Color(0,0,0),1);
 		}
 	
  
@@ -105,6 +100,8 @@ public class Scene {
 				+ ", _camera=" + _camera + ", _screenDistance=" + _screenDistance + "]";
 	}
 
+/****************** Administration  **********************/
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -138,11 +135,12 @@ public class Scene {
 			return false;
 		return true;
 	}
-    
+	/******************* Operations **************************/
+  
   public void addGeometry(Geometry geometry) {
 	  _geometries.addGeometry(geometry);
   }
- 
+	/********************* Helpers ***************************/  
   
 
   

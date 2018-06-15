@@ -7,13 +7,12 @@ import primitives.*;
 // Main that tests the classes.
 public class Main {
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Coordinate coord = new Coordinate(1);
 		Coordinate coord1 = new Coordinate(3);
 		Coordinate coord2 =new Coordinate(2);
 		Color c= new Color(255,128,0);
-		Material m = new Material(1,1,1);
+		Material m = new Material(1,1,1,1,1,1);
 		Point3D point3 = new Point3D(5, 4, 3);
 		Point3D point4 = new Point3D(point3);
 		point4 = new Point3D(1 , 2, 3);

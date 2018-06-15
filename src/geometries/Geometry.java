@@ -22,9 +22,9 @@ public abstract class Geometry implements Intersectable {
 	/******************* Constructors ************************/
 		
 	// Default constructor
-	public Geometry(Color em, Material mat) {	
-		_material = mat;
-		_emission = em;
+	public Geometry(Color emission, Material material) {	
+		_material = new Material(material);
+		_emission = new Color(emission);
 	}
 
 	/***************** Getters/Setters **********************/
