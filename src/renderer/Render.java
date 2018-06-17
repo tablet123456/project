@@ -69,7 +69,7 @@ public class Render {
 	/**
 	 * write to image
 	 */
-	public void writeToimage() {
+	public void writeToImage() {
 		_imageWriter.writeToimage();
 	}
 
@@ -83,11 +83,9 @@ public class Render {
 				GeoPoint closestPoint = getClosestPoint(intersectionsPoints);
 				if (intersectionsPoints.values().isEmpty() || intersectionsPoints == null || closestPoint == null)
 					_imageWriter.writePixel(i, j, _scene.get_background().getColor());
-				else {
-					_imageWriter.writePixel(i, j, calcColor(closestPoint, ray).getColor()); // calcColor(closestPpoint)
-					}
+				else 
+					_imageWriter.writePixel(i, j, calcColor(closestPoint, ray).getColor()); // calcColor(closestPpoint)	
 			}
-			
 		}
 
 	}
@@ -188,8 +186,8 @@ public class Render {
 		Vector v = inRay.get_direction();
 		Vector reflected = v.subtract(n.scale(2 * (v.dotProduct(n))));
 		Vector epsVector = normal.scale(normal.dotProduct(inRay.get_direction()) > 0 ? 2 : -2);
-		Point3D point = geoPoint.point.add(epsVector);
-		return new Ray(point, reflected);
+		//Point3D point = geoPoint.point.add(epsVector);
+		return new Ray(geoPoint.point, reflected);
 	}
 
 	private double occluded(Vector l, GeoPoint geopoint) {
@@ -208,27 +206,23 @@ public class Render {
 	}
 	
 
-	private GeoPoint getClosestPoint(Map<Geometry, List<Point3D>> intersectionsPoints) {
-		double distance = Double.MAX_VALUE;
+	private GeoPoint getClosestPoint(Map<Geometry, List<Point3D>> points) {
+		double Distance = Double.MAX_VALUE;
 		GeoPoint closestPoint = new GeoPoint();
 		Point3D p0 = _scene.get_camera().get_p0();
-		Point3D minDistancePoint = new Point3D(p0);
-		if (closestPoint != null) {
-			for (Entry<Geometry, List<Point3D>> intersect : intersectionsPoints.entrySet()) {
-				for (Point3D iPoint : intersect.getValue()) {
-					if (p0.distance(iPoint) < distance) {
-						minDistancePoint = new Point3D(iPoint);
-						distance = p0.distanceSqrt(iPoint);
-						closestPoint.point = minDistancePoint;
-						closestPoint.geometry = intersect.getKey();
-						// closestPoint.clear();
-						// closestPoint.put(geo, minDistancePoint);
-					}
+		for (Map.Entry<Geometry, List<Point3D>> entry : points.entrySet()) {
+			for (Point3D p : entry.getValue()) {
+				if (p0.distanceSqrt(p)< Distance) {
+					Distance = p0.distanceSqrt(p);
+					closestPoint.point = p;
+					closestPoint.geometry = entry.getKey();
 				}
 			}
 		}
+
 		return closestPoint;
 	}
+
 
 }
 

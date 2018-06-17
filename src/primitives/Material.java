@@ -19,15 +19,13 @@ public class Material {
 	int nShininess;
 	double _Kr;
 	double _Kt;
-	double _Kg;
 	
 	
-	public Material(double kd,double ks,double kr,double kt,double kg ,int nshininess) {
+	public Material(double kd,double ks,int nshininess,double kr,double kt) {
 		_Kd = kd;
 		_Ks = ks;
 		_Kr = kr;
 		_Kt = kt;
-		_Kg = kg;
 		nShininess =nshininess;
 	}
 	
@@ -36,7 +34,6 @@ public class Material {
 		_Ks = material._Ks;
 		_Kr = material._Kr;
 		_Kt = material._Kt; 
-		_Kg = material._Kg;
 		nShininess = material.nShininess;
 	}
 	
@@ -55,9 +52,6 @@ public class Material {
 	public double get_Kt() {
 		return _Kt;
 	}
-	public double get_Kg() {
-		return _Kg;
-	}
 	public int getnShininess() {
 		return nShininess;
 	}
@@ -75,10 +69,6 @@ public class Material {
 	
 	public void set_Kr(double _Kr) {
 		this._Kr = _Kr;
-	}
-	
-	public void set_Kg(double _Kg) {
-		this._Kg = _Kg;
 	}
 	
 	public void setnShininess(int nShininess) {
